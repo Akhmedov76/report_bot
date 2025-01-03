@@ -30,36 +30,3 @@ reports = sqlalchemy.Table(
     sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
     sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
 )
-
-categories = sqlalchemy.Table(
-    "categories",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("description", sqlalchemy.String, nullable=True),
-    sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
-    sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
-)
-
-products = sqlalchemy.Table(
-    "products",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("description", sqlalchemy.String, nullable=True),
-    sqlalchemy.Column("price", sqlalchemy.Float, nullable=False),
-    sqlalchemy.Column("category_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("categories.id"), nullable=False),
-    sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
-    sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
-)
-
-orders = sqlalchemy.Table(
-    "orders",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("user_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"), nullable=False),
-    sqlalchemy.Column("product_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("products.id"), nullable=False),
-    sqlalchemy.Column("quantity", sqlalchemy.Integer, nullable=False),
-    sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
-    sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
-)
