@@ -23,3 +23,11 @@ async def income_create_kb():
     )
     return markup
 
+
+async def save_income_kb():
+    markup = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=_("Saqlash ☑️"), callback_data="save_benefit")],
+        ]
+    )
+    return markup
