@@ -27,7 +27,8 @@ async def income_create_kb():
 async def save_income_kb():
     markup = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text=_("Saqlash ☑️"), callback_data="save_benefit")],
+            [InlineKeyboardButton(text=_("Saqlash ✅"), callback_data="save_income")],
+            [InlineKeyboardButton(text=_("Bekor qilish ❌"), callback_data="cancel_income")],
         ]
     )
     return markup

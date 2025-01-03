@@ -3,6 +3,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from keyboards.default.user import submit_benefit_kb, cancel_kb
 from states.user import BenefitsState
+from keyboards.inline.user import save_income_kb
 
 router = Router()
 
@@ -17,10 +18,9 @@ async def branches_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(BenefitsState.benefits_amount))
 async def benefits_amount_handler(message: types.Message, state: FSMContext):
     amount = message.text
-    await message.answer(text=f'{message.from_user.id}, {amount}, type: daromad')
     if not amount.isdigit():
         await message.answer('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!')
         return
     await state.update_data(benefits_amount=amount)
-    await message.answer(text="Daromatni saqlash uchun Saqlash tugmasini bosing.",
-                         reply_markup=await submit_benefit_kb())
+    text = f'Sizning daromadimiz: {amount} so\'m. 🤑'
+    await message.answer(text=text, reply_markup=await save_income_kb())
