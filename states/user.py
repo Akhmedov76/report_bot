@@ -13,3 +13,7 @@ class ChangeLanguageState(StatesGroup):
 
 class FeedbackState(StatesGroup):
     get_feedback = State()
+
+
+class BenefitsState(StatesGroup):
+    benefits_amount = State()

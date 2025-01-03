@@ -11,3 +11,9 @@ router = Router()
 async def menu_handler(message: types.Message, state: FSMContext):
     text = _("You are in the settings menu.")
     await message.answer(text=text, reply_markup=await user_main_menu_keyboard())
+
+
+@router.message(F.text.in_(['Bekor qilish ❌', 'Cancel ❌', 'Отмена ❌']))
+async def menu_handler(message: types.Message, state: FSMContext):
+    text = _("Bekor qilindi 😉")
+    await message.answer(text=text, reply_markup=await user_main_menu_keyboard())

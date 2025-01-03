@@ -16,13 +16,10 @@ from utils.get_lang_code import get_lang_by_text
 router = Router()
 
 
-# Foydalanuvchi 'start' komandasini yuborganda
 @router.message(Command("start"))
 async def start_handler(message: types.Message, state: FSMContext):
-    # Avvalgi ma'lumotlar o'chiriladi
     await state.clear()
 
-    # Foydalanuvchi mavjudligini tekshirish
     user = await get_user(chat_id=message.chat.id)
     if user:
         text = _("Welcome back my hero 😊")
@@ -33,10 +30,8 @@ async def start_handler(message: types.Message, state: FSMContext):
         await state.set_state(RegisterState.language)
 
 
-# Foydalanuvchi tilini tanlaganda
 @router.message(StateFilter(RegisterState.language))
 async def language_handler(message: types.Message, state: FSMContext):
-    # Tanlangan tilni saqlash
     language = await get_lang_by_text(language=message.text)
     await state.update_data(language=language)
 
@@ -45,10 +40,8 @@ async def language_handler(message: types.Message, state: FSMContext):
     await state.set_state(RegisterState.full_name)
 
 
-# Foydalanuvchi to'liq ismini yuborganda
 @router.message(StateFilter(RegisterState.full_name))
 async def get_full_name_handler(message: types.Message, state: FSMContext):
-    # Ismni saqlash
     await state.update_data(full_name=message.text)
 
     data = await state.get_data()
@@ -59,16 +52,12 @@ async def get_full_name_handler(message: types.Message, state: FSMContext):
     await state.set_state(RegisterState.phone_number)
 
 
-# Foydalanuvchi telefon raqamini yuborganda
 @router.message(StateFilter(RegisterState.phone_number), F.content_type == types.ContentType.CONTACT)
 async def get_phone_number_handler(message: types.Message, state: FSMContext):
-    # Telefon raqamini saqlash
     await state.update_data(phone_number=message.contact.phone_number)
 
     data = await state.get_data()
     language = data.get('language')
-
-    # Foydalanuvchini ma'lumotlar bazasiga qo'shish
     new_user = await add_user(message=message, data=data)
     if new_user:
         text = _("You have successfully registered ✅", locale=language)
