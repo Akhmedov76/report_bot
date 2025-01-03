@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(F.text.in_(['Daromad 💸', 'Daromad ₿', 'Daromad ₿']))
 async def branches_handler(message: types.Message, state: FSMContext):
-    await message.answer(text='Daromatni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat bo\'lishi kerak!',
+    await message.answer(text='Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat bo\'lishi kerak!',
                          reply_markup=await cancel_kb())
     await state.set_state(BenefitsState.benefits_amount)
 
@@ -17,6 +17,7 @@ async def branches_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(BenefitsState.benefits_amount))
 async def benefits_amount_handler(message: types.Message, state: FSMContext):
     amount = message.text
+    await message.answer(text=f'{message.from_user.id}, {amount}, type: daromad')
     if not amount.isdigit():
         await message.answer('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!')
         return
