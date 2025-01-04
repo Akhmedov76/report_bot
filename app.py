@@ -1,5 +1,5 @@
 import asyncio
-import signal
+
 from handlers.users import start, contact, menu, settings, backs, commands, branches, income, cost
 from loader import dp, bot
 from loader import i18n
@@ -37,9 +37,12 @@ async def main():
         await set_default_commands(bot=bot)
         await send_notification_to_devs(bot=bot)
 
-        # Start polling for updates
-        print("Bot is running...")
-        await dp.start_polling(bot, skip_updates=False)
+        updates = await bot.get_updates(offset=-1)
+        if updates:
+            print("Old updates skipped")
+
+        # Pollingni ishga tushirish
+        await dp.start_polling(bot, skip_updates=True)
 
     except Exception as e:
         print(f"An error occurred: {e}")
