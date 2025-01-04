@@ -4,7 +4,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import submit_benefit_kb, cancel_kb
+from keyboards.default.user import submit_benefit_kb, cancel_kb, user_main_menu_keyboard
 from states.user import IncomeAmountState, IncomeDescriptionState
 from keyboards.inline.user import save_income_kb
 
@@ -47,11 +47,11 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
 
 
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
-async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
+async def process_save_cancel(message: types.Message, callback_query: CallbackQuery, state: FSMContext):
     action = callback_query.data
     if action == 'save_income':
         await callback_query.answer('Daromadingiz muvaffaqiyatli saqlandi! ✅')
     elif action == 'cancel_income':
         await callback_query.answer('Daromadingiz saqlanmadi. ❌')
-
+    await message.reply_text(text='Siz asosiy menyudasiz!', reply_markup=await user_main_menu_keyboard())
     await callback_query.message.delete_reply_markup()
