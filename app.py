@@ -20,7 +20,7 @@ async def main():
     dp.include_router(router=backs.router)
     dp.include_router(router=commands.router)
     # daromat button
-    dp.include_router(router=benefit.router)
+    dp.include_router(router=income.router)
     dp.include_router(router=branches.router)
 
     dp.message.middleware(middleware=LanguageMiddleware(i18n=i18n))
