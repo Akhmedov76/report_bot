@@ -1,6 +1,6 @@
 import asyncio
 
-from handlers.users import start, contact, menu, settings, backs, commands, branches, income, cost
+from handlers.users import start, contact, menu, settings, backs, commands, branches, income, cost, reports
 from loader import dp, bot
 from loader import i18n
 from main.database import database
@@ -26,6 +26,9 @@ async def main():
         # Include income and cost routers
         dp.include_router(router=income.router)
         dp.include_router(router=cost.router)
+
+        # report routers
+        dp.include_router(router=reports.router)
 
         dp.include_router(router=branches.router)
 
