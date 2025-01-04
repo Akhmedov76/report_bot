@@ -1,6 +1,6 @@
 import asyncio
 
-from handlers.users import start, contact, menu, settings, backs, commands, branches, income
+from handlers.users import start, contact, menu, settings, backs, commands, branches, income, cost
 from loader import dp, bot
 from loader import i18n
 from main.database import database
@@ -19,10 +19,14 @@ async def main():
     dp.include_router(router=settings.router)
     dp.include_router(router=backs.router)
     dp.include_router(router=commands.router)
-    # daromat button
-    dp.include_router(router=income.router)
-    dp.include_router(router=branches.router)
 
+    # income button
+    dp.include_router(router=income.router)
+
+    # cost button
+    dp.include_router(router=cost.router)
+
+    dp.include_router(router=branches.router)
     dp.message.middleware(middleware=LanguageMiddleware(i18n=i18n))
     dp.message.middleware(middleware=SubscribeMiddleware())
 
