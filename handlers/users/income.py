@@ -4,7 +4,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import cancel_kb
+from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_income_kb
 from states.user import IncomeAmountState, IncomeDescriptionState
 
@@ -36,7 +36,7 @@ async def income_amount_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(IncomeDescriptionState.income_description))
 async def income_kb_handler(message: types.Message, state: FSMContext):
     description = message.text
-    if len(description) < 5:
+    if len(description) <= 2:
         await message.answer('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!',
                              reply_markup=await cancel_kb())
         return
@@ -54,3 +54,5 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     elif action == 'cancel_income':
         await callback_query.answer('Daromadingiz saqlanmadi. ❌')
     await callback_query.message.delete_reply_markup()
+    await callback_query.message.answer(text="Siz asosiy menyudasiz !", reply_markup=await user_main_menu_keyboard())
+    await state.clear()

@@ -4,7 +4,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import cancel_kb
+from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_cost_kb
 from states.user import CostAmountState, CostDescriptionState
 
@@ -21,7 +21,7 @@ async def branches_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(CostAmountState.cost_amount))
 async def cost_amount_handler(message: types.Message, state: FSMContext):
     amount = message.text
-    if not amount.isnumeric():
+    if not amount.isnumeric() and int(amount) < 1:
         await message.answer(text='Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.',
                              reply_markup=await cancel_kb())
         return
@@ -36,7 +36,7 @@ async def cost_amount_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(CostDescriptionState.cost_description))
 async def cost_kb_handler(message: types.Message, state: FSMContext):
     description = message.text
-    if len(description) < 5:
+    if len(description) <= 2:
         await message.answer('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!',
                              reply_markup=await cancel_kb())
         return
@@ -54,3 +54,6 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     elif action == 'cancel_cost':
         await callback_query.answer('Xarajat saqlanmadi. ❌')
     await callback_query.message.delete_reply_markup()
+    main_keyboard = await user_main_menu_keyboard()
+    await callback_query.message.answer(text='Siz asosiy menyudasiz 😊!', reply_markup=main_keyboard)
+    await state.clear()
