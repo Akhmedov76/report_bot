@@ -49,8 +49,8 @@ async def cost_kb_handler(message: types.Message, state: FSMContext):
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
 async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     action = callback_query.data
-    if action == 'save_income':
+    if action == 'save_cost':
         await callback_query.answer('Xarajat muvaffaqiyatli saqlandi! ✅')
-    elif action == 'cancel_income':
+    elif action == 'cancel_cost':
         await callback_query.answer('Xarajat saqlanmadi. ❌')
     await callback_query.message.delete_reply_markup()
