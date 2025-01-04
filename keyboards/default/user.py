@@ -1,7 +1,4 @@
-from aiogram.fsm.context import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
-from sqlalchemy.orm import Session
 
 from loader import _
 
