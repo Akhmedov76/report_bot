@@ -20,17 +20,22 @@ async def branches_handler(message: types.Message, state: FSMContext):
 
 @router.message(StateFilter(CostAmountState.cost_amount))
 async def cost_amount_handler(message: types.Message, state: FSMContext):
-    amount = message.text
-    if not amount.isnumeric() and int(amount) < 1:
+    try:
+        amount = message.text
+        if not amount.isnumeric() and int(amount) < 1:
+            await message.answer(text='Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.',
+                                 reply_markup=await cancel_kb())
+            return
+        await state.update_data(cost_amount=amount)
+        await message.answer(
+            "Qo\'shimcha malumot kiriting! 📝",
+            reply_markup=types.ForceReply(input_field_placeholder="Enter description...")
+        )
+        await state.set_state(CostDescriptionState.cost_description)
+    except Exception as e:
+        print(e)
         await message.answer(text='Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.',
                              reply_markup=await cancel_kb())
-        return
-    await state.update_data(cost_amount=amount)
-    await message.answer(
-        "Qo\'shimcha malumot kiriting! 📝",
-        reply_markup=types.ForceReply(input_field_placeholder="Enter description...")
-    )
-    await state.set_state(CostDescriptionState.cost_description)
 
 
 @router.message(StateFilter(CostDescriptionState.cost_description))
