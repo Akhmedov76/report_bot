@@ -22,7 +22,7 @@ reports = sqlalchemy.Table(
     "reports",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("user_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"), nullable=False),
+    sqlalchemy.Column("telegram_id", sqlalchemy.Integer, nullable=False),
     sqlalchemy.Column("amount", sqlalchemy.Integer or sqlalchemy.Float, nullable=False),
     sqlalchemy.Column("description", sqlalchemy.String, nullable=False),
     sqlalchemy.Column("type", sqlalchemy.String, default=ReportType.income, nullable=False),
