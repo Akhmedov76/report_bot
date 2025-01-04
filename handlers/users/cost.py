@@ -46,7 +46,7 @@ async def cost_kb_handler(message: types.Message, state: FSMContext):
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_cost_kb())
 
 
-@router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
+@router.callback_query(lambda c: c.data in ['save_cost', 'cancel_cost'])
 async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     action = callback_query.data
     if action == 'save_cost':
