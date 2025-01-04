@@ -1,10 +1,11 @@
 from aiogram import Router, F, types
+from aiogram.enums import ParseMode
 from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
 from keyboards.default.user import submit_benefit_kb, cancel_kb
-from states.user import BenefitsState
+from states.user import IncomeAmountState, IncomeDescriptionState
 from keyboards.inline.user import save_income_kb
 
 router = Router()
@@ -14,18 +15,35 @@ router = Router()
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(text='Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat bo\'lishi kerak!',
                          reply_markup=await cancel_kb())
-    await state.set_state(BenefitsState.benefits_amount)
+    await state.set_state(IncomeAmountState.income_amount)
 
 
-@router.message(StateFilter(BenefitsState.benefits_amount))
-async def benefits_amount_handler(message: types.Message, state: FSMContext):
+@router.message(StateFilter(IncomeAmountState.income_amount))
+async def income_amount_handler(message: types.Message, state: FSMContext):
     amount = message.text
     if not amount.isdigit():
-        await message.answer('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!')
+        await message.answer('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!',
+                             reply_markup=await cancel_kb())
         return
-    await state.update_data(benefits_amount=amount)
-    text = f'Sizning daromadimiz: {amount} so\'m. 🤑'
-    await message.answer(text=text, reply_markup=await save_income_kb())
+    await state.update_data(income_amount=amount)
+    await message.answer(
+        "Qo\'shimcha malumot kiriting! 📝",
+        reply_markup=types.ForceReply(input_field_placeholder="Enter description...")
+    )
+    await state.set_state(IncomeDescriptionState.income_description)
+
+
+@router.message(StateFilter(IncomeDescriptionState.income_description))
+async def income_kb_handler(message: types.Message, state: FSMContext):
+    description = message.text
+    if len(description) < 5:
+        await message.answer('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!',
+                             reply_markup=await cancel_kb())
+        return
+    data = await state.get_data()
+    amount = data.get('income_amount')
+    text = f'<b>💸Summa:</b> {amount} so\'m\n\n<b>📝Description:</b> {description}'
+    await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
 
 
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])

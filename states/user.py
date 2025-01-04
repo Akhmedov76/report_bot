@@ -2,18 +2,36 @@ from aiogram.fsm.state import StatesGroup, State
 
 
 class RegisterState(StatesGroup):
+    """
+    This state is used to store the user's information while registering.
+    """
     language = State()
     full_name = State()
     phone_number = State()
 
 
 class ChangeLanguageState(StatesGroup):
+    """
+    This state is used to store the language selected by the user.
+    """
     language = State()
 
 
 class FeedbackState(StatesGroup):
+    """
+    This state is used to store the feedback message sent by the user.
+    """
     get_feedback = State()
 
 
-class BenefitsState(StatesGroup):
-    benefits_amount = State()
+class IncomeAmountState(StatesGroup):
+    """
+    This state is used to store the benefits amount selected by the user.
+    """
+    income_amount = State()
+
+class IncomeDescriptionState(StatesGroup):
+    """
+    This state is used to store the benefits description selected by the user.
+    """
+    income_description = State()
