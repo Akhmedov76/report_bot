@@ -4,7 +4,6 @@ from aiogram.filters import Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import ReplyKeyboardRemove
 
-from filters.is_admin import IsAdminFilter
 from keyboards.common import phone_number_share_keyboard
 from keyboards.default.user import languages, user_main_menu_keyboard_with_lang
 from keyboards.default.user import user_main_menu_keyboard

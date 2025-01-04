@@ -4,9 +4,9 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import submit_benefit_kb, cancel_kb, user_main_menu_keyboard
-from states.user import IncomeAmountState, IncomeDescriptionState
+from keyboards.default.user import cancel_kb
 from keyboards.inline.user import save_income_kb
+from states.user import IncomeAmountState, IncomeDescriptionState
 
 router = Router()
 
