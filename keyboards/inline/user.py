@@ -1,6 +1,6 @@
-from loader import _
-
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+from loader import _
 
 
 async def income_kb():
