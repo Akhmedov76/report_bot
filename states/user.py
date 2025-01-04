@@ -30,8 +30,23 @@ class IncomeAmountState(StatesGroup):
     """
     income_amount = State()
 
+
 class IncomeDescriptionState(StatesGroup):
     """
     This state is used to store the benefits description selected by the user.
     """
     income_description = State()
+
+
+class CostAmountState(StatesGroup):
+    """
+    This state is used to store the expenses amount selected by the user.
+    """
+    cost_amount = State()
+
+
+class CostDescriptionState(StatesGroup):
+    """
+    This state is used to store the expenses description selected by the user.
+    """
+    cost_description = State()
