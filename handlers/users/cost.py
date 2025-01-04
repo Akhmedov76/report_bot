@@ -4,7 +4,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import cancel_kb, user_main_menu_keyboard
+from keyboards.default.user import cancel_kb
 from keyboards.inline.user import save_cost_kb
 from states.user import CostAmountState, CostDescriptionState
 
@@ -20,28 +20,23 @@ async def branches_handler(message: types.Message, state: FSMContext):
 
 @router.message(StateFilter(CostAmountState.cost_amount))
 async def cost_amount_handler(message: types.Message, state: FSMContext):
-    try:
-        amount = message.text
-        if not amount.isnumeric() and int(amount) < 1:
-            await message.answer(text='Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.',
-                                 reply_markup=await cancel_kb())
-            return
-        await state.update_data(cost_amount=amount)
-        await message.answer(
-            "Qo\'shimcha malumot kiriting! 📝",
-            reply_markup=types.ForceReply(input_field_placeholder="Enter description...")
-        )
-        await state.set_state(CostDescriptionState.cost_description)
-    except Exception as e:
-        print(e)
+    amount = message.text
+    if not amount.isnumeric():
         await message.answer(text='Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.',
                              reply_markup=await cancel_kb())
+        return
+    await state.update_data(cost_amount=amount)
+    await message.answer(
+        "Qo\'shimcha malumot kiriting! 📝",
+        reply_markup=types.ForceReply(input_field_placeholder="Enter description...")
+    )
+    await state.set_state(CostDescriptionState.cost_description)
 
 
 @router.message(StateFilter(CostDescriptionState.cost_description))
 async def cost_kb_handler(message: types.Message, state: FSMContext):
     description = message.text
-    if len(description) <= 2:
+    if len(description) < 5:
         await message.answer('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!',
                              reply_markup=await cancel_kb())
         return
@@ -51,14 +46,11 @@ async def cost_kb_handler(message: types.Message, state: FSMContext):
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_cost_kb())
 
 
-@router.callback_query(lambda c: c.data in ['save_cost', 'cancel_cost'])
+@router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
 async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     action = callback_query.data
-    if action == 'save_cost':
+    if action == 'save_income':
         await callback_query.answer('Xarajat muvaffaqiyatli saqlandi! ✅')
-    elif action == 'cancel_cost':
+    elif action == 'cancel_income':
         await callback_query.answer('Xarajat saqlanmadi. ❌')
     await callback_query.message.delete_reply_markup()
-    main_keyboard = await user_main_menu_keyboard()
-    await callback_query.message.answer(text='Siz asosiy menyudasiz 😊!', reply_markup=main_keyboard)
-    await state.clear()
