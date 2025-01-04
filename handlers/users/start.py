@@ -65,6 +65,4 @@ async def get_phone_number_handler(message: types.Message, state: FSMContext):
     else:
         text = _("Sorry, please try again later 😔", locale=language)
         await message.answer(text=text)
-
-    # Ro'yxatga olishdan so'ng, holatni tozalash
     await state.clear()
