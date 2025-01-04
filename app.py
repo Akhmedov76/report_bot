@@ -33,7 +33,7 @@ async def main():
     await set_default_commands(bot=bot)
     await send_notification_to_devs(bot=bot)
 
-    await dp.start_polling(bot)
+    await dp.start_polling(bot, skip_updates=True)
 
 
 if __name__ == '__main__':
