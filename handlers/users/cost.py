@@ -6,8 +6,9 @@ from aiogram.types import CallbackQuery
 
 from keyboards.default.user import cancel_kb
 from keyboards.inline.user import save_cost_kb
-from states.user import CostAmountState, CostDescriptionState
 from loader import _
+from states.user import CostAmountState, CostDescriptionState
+
 router = Router()
 
 
