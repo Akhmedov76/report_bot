@@ -1,6 +1,6 @@
 import asyncio
 
-from handlers.users import start, contact, menu, settings, backs, commands, branches, income, cost, reports, \
+from handlers.users import start, contact, cost_report, settings, backs, commands, branches, income, cost, reports, \
     income_report
 from loader import dp, bot
 from loader import i18n
@@ -33,6 +33,9 @@ async def main():
 
         # income report
         dp.include_router(router=income_report.router)
+
+        # cost report
+        dp.include_router(router=cost_report.router)
 
         # Set up middlewares
         dp.message.middleware(middleware=LanguageMiddleware(i18n=i18n))
