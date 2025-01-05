@@ -34,7 +34,7 @@ async def language_handler(message: types.Message, state: FSMContext):
     language = await get_lang_by_text(language=message.text)
     await state.update_data(language=language)
 
-    text = _("Sorry, you have to enter your full name", locale=language)
+    text = _("Kechirasiz, siz to'liq ismingizni kiritishingiz kerak", locale=language)
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
     await state.set_state(RegisterState.full_name)
 
@@ -46,7 +46,7 @@ async def get_full_name_handler(message: types.Message, state: FSMContext):
     data = await state.get_data()
     language = data.get('language')
 
-    text = _("Please, enter your phone number by the button below 👇", locale=language)
+    text = _("Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇", locale=language)
     await message.answer(text=text, reply_markup=await phone_number_share_keyboard(language=language))
     await state.set_state(RegisterState.phone_number)
 
@@ -59,9 +59,9 @@ async def get_phone_number_handler(message: types.Message, state: FSMContext):
     language = data.get('language')
     new_user = await add_user(message=message, data=data)
     if new_user:
-        text = _("You have successfully registered ✅", locale=language)
+        text = _("Siz roʻyxatdan oʻtdingiz ✅", locale=language)
         await message.answer(text=text, reply_markup=await user_main_menu_keyboard_with_lang(language=language))
     else:
-        text = _("Sorry, please try again later 😔", locale=language)
+        text = _("Kechirasiz, keyinroq qayta urinib ko'ring 😔", locale=language)
         await message.answer(text=text)
     await state.clear()

@@ -7,21 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-30 15:13+0500\n"
+"POT-Creation-Date: 2025-01-04 10:41+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: handlers/users/backs.py:12 handlers/users/settings.py:15
 msgid "You are in the settings menu."
 msgstr "Вы в меню настроек."
+
+#: handlers/users/backs.py:18
+msgid "Bekor qilindi 😉"
+msgstr ""
 
 #: handlers/users/commands.py:16
 msgid "Please enter your feedback 👇"
@@ -44,23 +48,30 @@ msgstr "Изменить язык 🌐"
 msgid "Language changed successfully."
 msgstr "Язык успешно изменен."
 
-#: handlers/users/start.py:31
+#: handlers/users/start.py:25
 msgid "Welcome back my hero 😊"
 msgstr "С возвращением, мой герой 😊"
 
-#: handlers/users/start.py:43
+#: handlers/users/start.py:28
+msgid ""
+"Tilni tanlang\n"
+"Select Language\n"
+"Ru tilni tanlang"
+msgstr ""
+
+#: handlers/users/start.py:38
 msgid "Sorry, you have to enter your full name"
 msgstr "Извините, вам нужно ввести ваше полное имя"
 
-#: handlers/users/start.py:54
+#: handlers/users/start.py:50
 msgid "Please, enter your phone number by the button below 👇"
 msgstr "Пожалуйста, введите свой номер телефона, используя кнопку ниже 👇"
 
-#: handlers/users/start.py:67
+#: handlers/users/start.py:63
 msgid "You have successfully registered ✅"
 msgstr "Вы успешно зарегистрированы ✅"
 
-#: handlers/users/start.py:70
+#: handlers/users/start.py:66
 msgid "Sorry, please try again later 😔"
 msgstr "Извините, пожалуйста, попробуйте позже 😔"
 
@@ -68,31 +79,71 @@ msgstr "Извините, пожалуйста, попробуйте позже 
 msgid "Share phone number ☎️"
 msgstr "Поделиться номером телефона ☎️"
 
-#: keyboards/default/user.py:11 keyboards/default/user.py:31
-msgid "Menu 🍕"
-msgstr "Меню 🍕"
+#: keyboards/default/user.py:13 keyboards/default/user.py:33
+msgid "Daromad 💸"
+msgstr ""
 
 #: keyboards/default/user.py:14 keyboards/default/user.py:34
-msgid "My orders 📖"
-msgstr "Мои заказы 📖"
+msgid "Xarajat 💰"
+msgstr ""
 
-#: keyboards/default/user.py:15 keyboards/default/user.py:35
-msgid "Our branches 🏚"
-msgstr "Наши филиалы 🏚"
+#: keyboards/default/user.py:17 keyboards/default/user.py:38
+msgid "Hisobotlar 📄"
+msgstr ""
 
-#: keyboards/default/user.py:18 keyboards/default/user.py:38
-msgid "Contact ☎️"
-msgstr "Контакт ☎️"
+#: keyboards/default/user.py:20 keyboards/default/user.py:41
+msgid "Admin bilan aloqa ☎️"
+msgstr ""
 
-#: keyboards/default/user.py:19 keyboards/default/user.py:39
-msgid "Settings ⚙️"
-msgstr "Настройки ⚙️"
+#: keyboards/default/user.py:21 keyboards/default/user.py:42
+msgid "Sozlanmalar ⚙️"
+msgstr ""
 
-#: keyboards/default/user.py:86
+#: keyboards/default/user.py:64 keyboards/inline/user.py:21
+msgid "Ortga qaytish ⬅️"
+msgstr ""
+
+#: keyboards/default/user.py:98
 msgid "Change language 🌐"
 msgstr "Изменить язык 🌐"
 
-#: keyboards/default/user.py:89 keyboards/default/user.py:100
+#: keyboards/default/user.py:101 keyboards/default/user.py:113
 msgid "Back ⬅️"
 msgstr "Назад ⬅️"
+
+#: keyboards/default/user.py:110 keyboards/inline/user.py:30
+msgid "Saqlash ✅"
+msgstr ""
+
+#: keyboards/default/user.py:122 keyboards/inline/user.py:20
+#: keyboards/inline/user.py:31
+msgid "Bekor qilish ❌"
+msgstr ""
+
+#: keyboards/inline/user.py:9
+msgid "O'chirish ✍️"
+msgstr ""
+
+#: keyboards/inline/user.py:10
+msgid "Yaratish ➕"
+msgstr ""
+
+#: keyboards/inline/user.py:11
+msgid "Orqaga qaytish ⬅️"
+msgstr ""
+
+#~ msgid "Menu 🍕"
+#~ msgstr "Меню 🍕"
+
+#~ msgid "My orders 📖"
+#~ msgstr "Мои заказы 📖"
+
+#~ msgid "Our branches 🏚"
+#~ msgstr "Наши филиалы 🏚"
+
+#~ msgid "Contact ☎️"
+#~ msgstr "Контакт ☎️"
+
+#~ msgid "Settings ⚙️"
+#~ msgstr "Настройки ⚙️"
 

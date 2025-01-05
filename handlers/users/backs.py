@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(F.text.in_(['Orqaga qaytish ⬅️', 'Back ⬅️', 'Назад ⬅️']))
 async def menu_handler(message: types.Message, state: FSMContext):
-    text = _("You are in the settings menu.")
+    text = _("Siz sozlamalar menyusidasiz..")
     await message.answer(text=text, reply_markup=await user_main_menu_keyboard())
 
 
