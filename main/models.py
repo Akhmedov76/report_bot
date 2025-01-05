@@ -30,3 +30,6 @@ reports = sqlalchemy.Table(
     sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
     sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
 )
+
+
+

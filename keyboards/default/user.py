@@ -27,8 +27,8 @@ async def user_main_menu_keyboard():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text=_("Daromad 💸")),
-                KeyboardButton(text=_("Xarajat 💰"))
+                KeyboardButton(text=_("Daromad 📊")),
+                KeyboardButton(text=_("Xarajat 📉"))
             ],
             [
 

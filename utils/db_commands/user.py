@@ -39,3 +39,33 @@ async def add_user(message: types.Message, data: dict) -> Union[int, None]:
         error_text = f"Error adding new user{message.chat.id}: {e}"
         logger.error(error_text)
         return None
+
+
+async def add_income_report(message: types.Message, data: dict) -> Union[int, None]:
+    """Add income report to database"""
+    try:
+        query = users.update().where(users.c.chat_id == message.chat.id).values(
+            income_report=data.get('income_report'),
+            updated_at=message.date
+        )
+        affected_rows = await database.execute(query=query)
+        return affected_rows
+    except Exception as e:
+        error_text = f"Error updating income report for user {message.chat.id}: {e}"
+        logger.error(error_text)
+        return None
+
+
+async def add_expense_report(message: types.Message, data: dict) -> Union[int, None]:
+    """Add expense report to database"""
+    try:
+        query = users.update().where(users.c.chat_id == message.chat.id).values(
+            expense_report=data.get('expense_report'),
+            updated_at=message.date
+        )
+        affected_rows = await database.execute(query=query)
+        return affected_rows
+    except Exception as e:
+        error_text = f"Error updating expense report for user {message.chat.id}: {e}"
+        logger.error(error_text)
+        return None
