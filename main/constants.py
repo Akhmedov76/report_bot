@@ -1,15 +1,17 @@
 from enum import Enum
 
+from loader import _
+
 
 class UserStatus(str, Enum):
-    active = "active"
-    inactive = "inactive"
+    active = _("active")
+    inactive = _("inactive")
 
 
 class ReportStatus(str, Enum):
-    deactivated = "deactivated"
-    activated = "activated"
+    deactivated = _("deactivated")
+    activated = _("activated")
 
 class ReportType(str, Enum):
-    income = "income"
-    expense = "expense"
+    income = _("income")
+    expense = _("expense")
