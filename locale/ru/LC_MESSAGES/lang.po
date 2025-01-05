@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-05 12:47+0500\n"
+"POT-Creation-Date: 2025-01-05 16:35+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -39,9 +39,7 @@ msgstr "Пожалуйста, введите ваш отзыв"
 msgid ""
 "Fikr-mulohaza adminlarga muvaffaqiyatli yuborildi. Fikr-mulohazangiz "
 "uchun rahmat! 😊"
-msgstr ""
-"Отзыв успешно отправлен администраторам. Ваш отзыв"
-"спасибо за"
+msgstr "Отзыв успешно отправлен администраторам. Ваш отзывспасибо за"
 
 #: handlers/users/contact.py:10
 #, fuzzy
@@ -52,9 +50,7 @@ msgstr "📲 Контактный центр: 1174 или (71) 203-66-66"
 msgid ""
 "Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
-msgstr ""
-"Введите стоимость. Например: 100000. Только цифры."
-"должно быть!"
+msgstr "Введите стоимость. Например: 100000. Только цифры.должно быть!"
 
 #: handlers/users/cost.py:26
 msgid "Miqdori notog'ri kiritilgan. Miqdorni to'g'ri kiriting."
@@ -72,9 +68,7 @@ msgstr "Введите описание..."
 msgid ""
 "Ma'lumotlar notog'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot "
 "kiriting!"
-msgstr ""
-"Данные были введены неверно. Пожалуйста, более 5 символов"
-"входить!"
+msgstr "Данные были введены неверно. Пожалуйста, более 5 символоввходить!"
 
 #: handlers/users/cost.py:54
 msgid "Xarajat muvaffaqiyatli saqlandi! ✅"
@@ -84,13 +78,15 @@ msgstr "Стоимость успешно сэкономлена! ✅"
 msgid "Xarajat saqlanmadi. ❌"
 msgstr "Никаких затрат. ❌"
 
+#: handlers/users/cost_report.py:12
+msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+msgstr ""
+
 #: handlers/users/income.py:18
 msgid ""
 "Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
-msgstr ""
-"Введите доход. Например: 100000. Только цифры."
-"должно быть!"
+msgstr "Введите доход. Например: 100000. Только цифры.должно быть!"
 
 #: handlers/users/income.py:27
 msgid "Miqdori notog'ri kiritilgan. Miqdori raqamlardan iborat bo'lishi kerak!"
@@ -107,6 +103,10 @@ msgstr "Ваш заработок не был сохранен. ❌"
 #: handlers/users/income.py:60
 msgid "Siz asosiy menyudasiz !"
 msgstr "Вы находитесь в главном меню!"
+
+#: handlers/users/income_report.py:11
+msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+msgstr ""
 
 #: handlers/users/settings.py:15
 msgid "Siz sozlamalar menyusidasiz."

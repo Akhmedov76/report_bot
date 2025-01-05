@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-05 12:47+0500\n"
+"POT-Creation-Date: 2025-01-05 16:35+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -77,6 +77,10 @@ msgstr ""
 msgid "Xarajat saqlanmadi. ❌"
 msgstr ""
 
+#: handlers/users/cost_report.py:12
+msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+msgstr ""
+
 #: handlers/users/income.py:18
 msgid ""
 "Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
@@ -97,6 +101,10 @@ msgstr ""
 
 #: handlers/users/income.py:60
 msgid "Siz asosiy menyudasiz !"
+msgstr ""
+
+#: handlers/users/income_report.py:11
+msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
 msgstr ""
 
 #: handlers/users/settings.py:15
