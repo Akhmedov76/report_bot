@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-04 10:41+0500\n"
+"POT-Creation-Date: 2025-01-05 12:47+0500\n"
 "PO-Revision-Date: 2025-01-05 11:33+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -18,103 +18,196 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: handlers/users/backs.py:12 handlers/users/settings.py:15
-msgid "You are in the settings menu."
+#: handlers/users/backs.py:12
+msgid "Siz sozlamalar menyusidasiz..."
 msgstr ""
 
 #: handlers/users/backs.py:18
 msgid "Bekor qilindi 😉"
 msgstr ""
 
+#: handlers/users/commands.py:13
+msgid "Fikr-mulohaza"
+msgstr ""
+
 #: handlers/users/commands.py:16
-msgid "Please enter your feedback 👇"
+msgid "Iltimos, fikr-mulohazangizni kiriting 👇"
 msgstr ""
 
 #: handlers/users/commands.py:39
-msgid "Feedback sent to admins successfully. Thank you for your feedback! 😊"
+msgid ""
+"Fikr-mulohaza adminlarga muvaffaqiyatli yuborildi. Fikr-mulohazangiz "
+"uchun rahmat! 😊"
 msgstr ""
 
 #: handlers/users/contact.py:10
-msgid "📲 Call center: 1174 or (71) 203-66-66"
+msgid "📲 Aloqa markazi: 1174 or (71) 203-66-66"
+msgstr ""
+
+#: handlers/users/cost.py:17
+msgid ""
+"Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
+"bo'lishi kerak!"
+msgstr ""
+
+#: handlers/users/cost.py:26
+msgid "Miqdori notog'ri kiritilgan. Miqdorni to'g'ri kiriting."
+msgstr ""
+
+#: handlers/users/cost.py:30 handlers/users/income.py:31
+msgid "Qo'shimcha malumot kiriting! 📝"
+msgstr ""
+
+#: handlers/users/cost.py:32 handlers/users/income.py:33
+msgid "Tavsifni kiriting..."
+msgstr ""
+
+#: handlers/users/cost.py:41 handlers/users/income.py:43
+msgid ""
+"Ma'lumotlar notog'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot "
+"kiriting!"
+msgstr ""
+
+#: handlers/users/cost.py:54
+msgid "Xarajat muvaffaqiyatli saqlandi! ✅"
+msgstr ""
+
+#: handlers/users/cost.py:56
+msgid "Xarajat saqlanmadi. ❌"
+msgstr ""
+
+#: handlers/users/income.py:18
+msgid ""
+"Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
+"bo'lishi kerak!"
+msgstr ""
+
+#: handlers/users/income.py:27
+msgid "Miqdori notog'ri kiritilgan. Miqdori raqamlardan iborat bo'lishi kerak!"
+msgstr ""
+
+#: handlers/users/income.py:56
+msgid "Daromadingiz muvaffaqiyatli saqlandi! ✅"
+msgstr ""
+
+#: handlers/users/income.py:58
+msgid "Daromadingiz saqlanmadi. ❌"
+msgstr ""
+
+#: handlers/users/income.py:60
+msgid "Siz asosiy menyudasiz !"
+msgstr ""
+
+#: handlers/users/settings.py:15
+msgid "Siz sozlamalar menyusidasiz."
 msgstr ""
 
 #: handlers/users/settings.py:21
-msgid "Choose your language:"
+msgid "Tilingizni tanlang:"
 msgstr ""
 
 #: handlers/users/settings.py:29
-msgid "Language changed successfully."
+msgid "Til muvaffaqiyatli o'zgartirildi."
 msgstr ""
 
-#: handlers/users/start.py:25
-msgid "Welcome back my hero 😊"
+#: handlers/users/start.py:24
+msgid "Xush kelibsiz mening xo'jayinw 😊"
 msgstr ""
 
-#: handlers/users/start.py:28
+#: handlers/users/start.py:27
 msgid ""
 "Tilni tanlang\n"
 "Select Language\n"
 "Ru tilni tanlang"
 msgstr ""
 
-#: handlers/users/start.py:38
-msgid "Sorry, you have to enter your full name"
+#: handlers/users/start.py:37
+msgid "Kechirasiz, siz to'liq ismingizni kiritishingiz kerak"
 msgstr ""
 
-#: handlers/users/start.py:50
-msgid "Please, enter your phone number by the button below 👇"
+#: handlers/users/start.py:49
+msgid "Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇"
 msgstr ""
 
-#: handlers/users/start.py:63
-msgid "You have successfully registered ✅"
+#: handlers/users/start.py:62
+msgid "Siz roʻyxatdan oʻtdingiz ✅"
 msgstr ""
 
-#: handlers/users/start.py:66
-msgid "Sorry, please try again later 😔"
+#: handlers/users/start.py:65
+msgid "Kechirasiz, keyinroq qayta urinib ko'ring 😔"
 msgstr ""
 
 #: keyboards/common.py:8
-msgid "Share phone number ☎️"
+msgid "Telefon raqamni ulashish ☎️"
 msgstr ""
 
-#: keyboards/default/user.py:13 keyboards/default/user.py:33
+#: keyboards/default/report_kb.py:10
+msgid "Daromad bo'yicha hisobot🤑"
+msgstr ""
+
+#: keyboards/default/report_kb.py:11
+msgid "Xarajatlar bo'yicha hisobot💸"
+msgstr ""
+
+#: keyboards/default/user.py:10 keyboards/default/user.py:30
 msgid "Daromad 💸"
 msgstr ""
 
-#: keyboards/default/user.py:14 keyboards/default/user.py:34
+#: keyboards/default/user.py:11 keyboards/default/user.py:31
 msgid "Xarajat 💰"
 msgstr ""
 
-#: keyboards/default/user.py:17 keyboards/default/user.py:38
+#: keyboards/default/user.py:14 keyboards/default/user.py:35
 msgid "Hisobotlar 📄"
 msgstr ""
 
-#: keyboards/default/user.py:20 keyboards/default/user.py:41
+#: keyboards/default/user.py:17 keyboards/default/user.py:38
 msgid "Admin bilan aloqa ☎️"
 msgstr ""
 
-#: keyboards/default/user.py:21 keyboards/default/user.py:42
+#: keyboards/default/user.py:18 keyboards/default/user.py:39
 msgid "Sozlanmalar ⚙️"
 msgstr ""
 
-#: keyboards/default/user.py:64 keyboards/inline/user.py:21
+#: keyboards/default/user.py:61 keyboards/inline/user.py:21
 msgid "Ortga qaytish ⬅️"
 msgstr ""
 
-#: keyboards/default/user.py:98
-msgid "Change language 🌐"
+#: keyboards/default/user.py:70
+msgid "Yetkazib berish"
 msgstr ""
 
-#: keyboards/default/user.py:101 keyboards/default/user.py:113
-msgid "Back ⬅️"
+#: keyboards/default/user.py:71
+msgid "Olib ketish"
 msgstr ""
 
-#: keyboards/default/user.py:110 keyboards/inline/user.py:30
+#: keyboards/default/user.py:74
+msgid "Orqaga"
+msgstr ""
+
+#: keyboards/default/user.py:83
+msgid "Joylashuvingizni yuboring"
+msgstr ""
+
+#: keyboards/default/user.py:86
+msgid "Mening barcha joylarim"
+msgstr ""
+
+#: keyboards/default/user.py:95
+msgid "Tilni o'zgartirish 🌐"
+msgstr ""
+
+#: keyboards/default/user.py:98 keyboards/default/user.py:110
+msgid "Orqaga ⬅️"
+msgstr ""
+
+#: keyboards/default/user.py:107 keyboards/inline/user.py:30
+#: keyboards/inline/user.py:39
 msgid "Saqlash ✅"
 msgstr ""
 
-#: keyboards/default/user.py:122 keyboards/inline/user.py:20
-#: keyboards/inline/user.py:31
+#: keyboards/default/user.py:119 keyboards/inline/user.py:20
+#: keyboards/inline/user.py:31 keyboards/inline/user.py:40
 msgid "Bekor qilish ❌"
 msgstr ""
 
@@ -129,4 +222,46 @@ msgstr ""
 #: keyboards/inline/user.py:11
 msgid "Orqaga qaytish ⬅️"
 msgstr ""
+
+#~ msgid "You are in the settings menu."
+#~ msgstr ""
+
+#~ msgid "Please enter your feedback 👇"
+#~ msgstr ""
+
+#~ msgid "Feedback sent to admins successfully. Thank you for your feedback! 😊"
+#~ msgstr ""
+
+#~ msgid "📲 Call center: 1174 or (71) 203-66-66"
+#~ msgstr ""
+
+#~ msgid "Choose your language:"
+#~ msgstr ""
+
+#~ msgid "Language changed successfully."
+#~ msgstr ""
+
+#~ msgid "Welcome back my hero 😊"
+#~ msgstr ""
+
+#~ msgid "Sorry, you have to enter your full name"
+#~ msgstr ""
+
+#~ msgid "Please, enter your phone number by the button below 👇"
+#~ msgstr ""
+
+#~ msgid "You have successfully registered ✅"
+#~ msgstr ""
+
+#~ msgid "Sorry, please try again later 😔"
+#~ msgstr ""
+
+#~ msgid "Share phone number ☎️"
+#~ msgstr ""
+
+#~ msgid "Change language 🌐"
+#~ msgstr ""
+
+#~ msgid "Back ⬅️"
+#~ msgstr ""
 
