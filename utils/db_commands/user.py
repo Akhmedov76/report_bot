@@ -2,11 +2,10 @@ from typing import Union
 
 from aiogram import types
 
-from handlers.users import reports
 from logging_settings import logger
 from main.constants import UserStatus
 from main.database import database
-from main.models import users
+from main.models import users, reports
 
 
 async def get_user(chat_id: int) -> Union[dict, None]:
@@ -47,12 +46,13 @@ async def add_income_report(message: types.Message, data: dict) -> Union[int, No
     try:
         query = reports.insert().values(
             telegram_id=message.chat.id,
-            amount=data.get("amount"),
+            amount=int(data.get("amount")),
             description=data.get("description"),
             type=data.get('type'),
+            status=data.get('status'),
             created_at=message.date,
             updated_at=message.date
-        ).returning(users.c.id)
+        ).returning(reports.c.id)
         new_income = await database.execute(query=query)
         return new_income
     except Exception as e:

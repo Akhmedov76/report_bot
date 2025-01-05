@@ -8,7 +8,8 @@ from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_income_kb
 from loader import _
 from states.user import IncomeAmountState, IncomeDescriptionState
-from main.constants import ReportType
+from main.constants import ReportType, ReportStatus
+from utils.db_commands.user import add_income_report
 
 router = Router()
 
@@ -53,17 +54,23 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
 
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
 async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
-    action = callback_query.data
-    if action == 'save_income':
-        await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))
-        data = await state.get_data()
-        amount = data.get('amount')
-        description = data.get('description')
-        data['type'] = ReportType.income.value
-        print(amount, description)
-        print('data', data)
-    elif action == 'cancel_income':
-        await callback_query.answer(text=_('Daromadingiz saqlanmadi. ❌'))
-    await callback_query.message.delete_reply_markup()
-    await callback_query.message.answer(text=_("Siz asosiy menyudasiz !"), reply_markup=await user_main_menu_keyboard())
-    await state.clear()
+    try:
+        action = callback_query.data
+        if action == 'save_income':
+            data = await state.get_data()
+            data['type'] = ReportType.income.value
+            data['status'] = ReportStatus.activated.value
+            new_income = await add_income_report(data=data, message=callback_query.message)
+            if new_income:
+                await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))
+            else:
+                await callback_query.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))
+        elif action == 'cancel_income':
+            await callback_query.answer(text=_('Daromadingiz saqlanmadi. ❌'))
+        await callback_query.message.delete_reply_markup()
+        await callback_query.message.answer(text=_("Siz asosiy menyudasiz !"),
+                                            reply_markup=await user_main_menu_keyboard())
+        await state.clear()
+    except Exception as e:
+        print(e)
+        await callback_query.message.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))
