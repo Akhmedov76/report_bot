@@ -12,7 +12,7 @@ from states.user import CostAmountState, CostDescriptionState
 router = Router()
 
 
-@router.message(F.text.in_(['Xarajat 💰', 'Xarajat 💰', 'Xarajat 💰']))
+@router.message(F.text.in_(['Xarajat 📉', 'Xarajat 📉', 'Xarajat 📉']))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(text=_('Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat bo\'lishi kerak!'),
                          reply_markup=await cancel_kb())

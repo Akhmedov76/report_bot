@@ -10,3 +10,4 @@ router = Router()
     F.text.in_(["Xarajatlar bo'yicha hisobot💸", "Xarajatlar bo'yicha hisobot💸", "Xarajatlar bo'yicha hisobot💸"]))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"))
+   

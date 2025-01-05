@@ -7,8 +7,8 @@ async def user_main_menu_keyboard_with_lang(language: str):
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text=_("Daromad 💸", locale=language)),
-                KeyboardButton(text=_("Xarajat 💰", locale=language)),
+                KeyboardButton(text=_("Daromad 📊", locale=language)),
+                KeyboardButton(text=_("Xarajat 📉", locale=language)),
             ],
             [
                 KeyboardButton(text=_("Hisobotlar 📄", locale=language)),
