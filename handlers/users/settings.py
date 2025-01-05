@@ -18,7 +18,7 @@ async def menu_handler(message: types.Message, state: FSMContext):
 
 @router.message(F.text.in_(["Tilni o'zgartirish 🌐", "Change language 🌐", "Изменить язык 🌐"]))
 async def change_language_handler(message: types.Message, state: FSMContext):
-    await message.answer(text=_("Choose your language:"), reply_markup=languages)
+    await message.answer(text=_("Tilingizni tanlang:"), reply_markup=languages)
     await state.set_state(ChangeLanguageState.language)
 
 
