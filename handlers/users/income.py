@@ -8,6 +8,7 @@ from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_income_kb
 from loader import _
 from states.user import IncomeAmountState, IncomeDescriptionState
+from main.constants import ReportType
 
 router = Router()
 
@@ -27,7 +28,7 @@ async def income_amount_handler(message: types.Message, state: FSMContext):
         await message.answer(text=_('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!'),
                              reply_markup=await cancel_kb())
         return
-    await state.update_data(income_amount=amount)
+    await state.update_data(amount=amount)
     await message.answer(text=_(
         "Qo\'shimcha malumot kiriting! 📝"),
         reply_markup=types.ForceReply(input_field_placeholder=_("Tavsifni kiriting..."))
@@ -41,10 +42,11 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
     if len(description) <= 2:
         await message.answer(
             text=_('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!'),
-                             reply_markup=await cancel_kb())
+            reply_markup=await cancel_kb())
         return
     data = await state.get_data()
-    amount = data.get('income_amount')
+    amount = data.get('amount')
+    await state.update_data(description=description)
     text = _(f'<b>💸Miqdor:</b> {amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
 
@@ -54,6 +56,12 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     action = callback_query.data
     if action == 'save_income':
         await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))
+        data = await state.get_data()
+        amount = data.get('amount')
+        description = data.get('description')
+        data['type'] = ReportType.income.value
+        print(amount, description)
+        print('data', data)
     elif action == 'cancel_income':
         await callback_query.answer(text=_('Daromadingiz saqlanmadi. ❌'))
     await callback_query.message.delete_reply_markup()

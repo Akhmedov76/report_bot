@@ -2,6 +2,7 @@ from typing import Union
 
 from aiogram import types
 
+from handlers.users import reports
 from logging_settings import logger
 from main.constants import UserStatus
 from main.database import database
@@ -44,14 +45,18 @@ async def add_user(message: types.Message, data: dict) -> Union[int, None]:
 async def add_income_report(message: types.Message, data: dict) -> Union[int, None]:
     """Add income report to database"""
     try:
-        query = users.update().where(users.c.chat_id == message.chat.id).values(
-            income_report=data.get('income_report'),
+        query = reports.insert().values(
+            telegram_id=message.chat.id,
+            amount=data.get("amount"),
+            description=data.get("description"),
+            type=data.get('type'),
+            created_at=message.date,
             updated_at=message.date
-        )
-        affected_rows = await database.execute(query=query)
-        return affected_rows
+        ).returning(users.c.id)
+        new_income = await database.execute(query=query)
+        return new_income
     except Exception as e:
-        error_text = f"Error updating income report for user {message.chat.id}: {e}"
+        error_text = f"Error adding income report for user {message.chat.id}: {e}"
         logger.error(error_text)
         return None
 
