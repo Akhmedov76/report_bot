@@ -1,11 +1,11 @@
 from aiogram import Router, F, types
 from aiogram.fsm.context import FSMContext
 
-from keyboards.default.report_kb import report_main_kb
+from loader import _
 
 router = Router()
 
 
 @router.message(F.text.in_(["Daromad bo'yicha hisobot🤑", "Daromad bo'yicha hisobot🤑", "Daromad bo'yicha hisobot🤑"]))
 async def branches_handler(message: types.Message, state: FSMContext):
-    await message.answer("Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊")
+    await message.answer(_("Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"))
