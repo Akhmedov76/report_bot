@@ -6,6 +6,6 @@ from loader import _
 router = Router()
 
 
-@router.message(F.text.in_(["Daromad bo'yicha hisobot🤑", "Daromad bo'yicha hisobot🤑", "Daromad bo'yicha hisobot🤑"]))
+@router.message(F.text.in_(["Daromad bo'yicha hisobot📊", "Daromad bo'yicha hisobot📊", "Daromad bo'yicha hisobot📊"]))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"))
