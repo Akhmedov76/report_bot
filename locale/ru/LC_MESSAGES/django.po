@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-05 11:29+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\handlers\users\backs.py:12 .\handlers\users\settings.py:15
+msgid "You are in the settings menu."
+msgstr ""
+
+#: .\handlers\users\backs.py:18
+msgid "Bekor qilindi 😉"
+msgstr ""
+
+#: .\handlers\users\commands.py:16
+msgid "Please enter your feedback 👇"
+msgstr ""
+
+#: .\handlers\users\commands.py:39
+msgid "Feedback sent to admins successfully. Thank you for your feedback! 😊"
+msgstr ""
+
+#: .\handlers\users\contact.py:10
+msgid "📲 Call center: 1174 or (71) 203-66-66"
+msgstr ""
+
+#: .\handlers\users\settings.py:21
+msgid "Choose your language:"
+msgstr ""
+
+#: .\handlers\users\settings.py:29
+msgid "Language changed successfully."
+msgstr ""
+
+#: .\handlers\users\start.py:24
+msgid "Welcome back my hero 😊"
+msgstr ""
+
+#: .\handlers\users\start.py:27
+msgid ""
+"Tilni tanlang\n"
+"Select Language\n"
+"Ru tilni tanlang"
+msgstr ""
+
+#: .\handlers\users\start.py:37
+msgid "Sorry, you have to enter your full name"
+msgstr ""
+
+#: .\handlers\users\start.py:49
+msgid "Please, enter your phone number by the button below 👇"
+msgstr ""
+
+#: .\handlers\users\start.py:62
+msgid "You have successfully registered ✅"
+msgstr ""
+
+#: .\handlers\users\start.py:65
+msgid "Sorry, please try again later 😔"
+msgstr ""
+
+#: .\keyboards\common.py:8
+msgid "Share phone number ☎️"
+msgstr ""
+
+#: .\keyboards\default\report_kb.py:10
+msgid "Daromad bo'yicha hisobot🤑"
+msgstr ""
+
+#: .\keyboards\default\report_kb.py:11
+msgid "Xarajatlar bo'yicha hisobot💸"
+msgstr ""
+
+#: .\keyboards\default\user.py:10 .\keyboards\default\user.py:30
+msgid "Daromad 💸"
+msgstr ""
+
+#: .\keyboards\default\user.py:11 .\keyboards\default\user.py:31
+msgid "Xarajat 💰"
+msgstr ""
+
+#: .\keyboards\default\user.py:14 .\keyboards\default\user.py:35
+msgid "Hisobotlar 📄"
+msgstr ""
+
+#: .\keyboards\default\user.py:17 .\keyboards\default\user.py:38
+msgid "Admin bilan aloqa ☎️"
+msgstr ""
+
+#: .\keyboards\default\user.py:18 .\keyboards\default\user.py:39
+msgid "Sozlanmalar ⚙️"
+msgstr ""
+
+#: .\keyboards\default\user.py:61 .\keyboards\inline\user.py:21
+msgid "Ortga qaytish ⬅️"
+msgstr ""
+
+#: .\keyboards\default\user.py:95
+msgid "Change language 🌐"
+msgstr ""
+
+#: .\keyboards\default\user.py:98 .\keyboards\default\user.py:110
+msgid "Back ⬅️"
+msgstr ""
+
+#: .\keyboards\default\user.py:107 .\keyboards\inline\user.py:30
+#: .\keyboards\inline\user.py:39
+msgid "Saqlash ✅"
+msgstr ""
+
+#: .\keyboards\default\user.py:119 .\keyboards\inline\user.py:20
+#: .\keyboards\inline\user.py:31 .\keyboards\inline\user.py:40
+msgid "Bekor qilish ❌"
+msgstr ""
+
+#: .\keyboards\inline\user.py:9
+msgid "O'chirish ✍️"
+msgstr ""
+
+#: .\keyboards\inline\user.py:10
+msgid "Yaratish ➕"
+msgstr ""
+
+#: .\keyboards\inline\user.py:11
+msgid "Orqaga qaytish ⬅️"
+msgstr ""

@@ -67,11 +67,11 @@ async def income_edit_kb():
 async def inside_menu_kb():
     markup = ReplyKeyboardMarkup(keyboard=[
         [
-            KeyboardButton(text="Deliver"),
-            KeyboardButton(text="Pick up"),
+            KeyboardButton(text=_("Yetkazib berish")),
+            KeyboardButton(text=_("Olib ketish")),
         ],
         [
-            KeyboardButton(text="Back")
+            KeyboardButton(text=_("Orqaga"))
         ]
     ])
     return markup
@@ -80,10 +80,10 @@ async def inside_menu_kb():
 async def inside_deliver_kb():
     markup = ReplyKeyboardMarkup(keyboard=[
         [
-            KeyboardButton(text="Send your location")
+            KeyboardButton(text=_("Joylashuvingizni yuboring"))
         ],
         [
-            KeyboardButton(text="My all locations")
+            KeyboardButton(text=_("Mening barcha joylarim"))
         ]
     ], resize_keyboard=True)
     return markup
@@ -92,10 +92,10 @@ async def inside_deliver_kb():
 async def change_language_kb():
     markup = ReplyKeyboardMarkup(keyboard=[
         [
-            KeyboardButton(text=_("Change language 🌐"))
+            KeyboardButton(text=_("Tilni o'zgartirish 🌐"))
         ],
         [
-            KeyboardButton(text=_("Back ⬅️"))
+            KeyboardButton(text=_("Orqaga ⬅️"))
         ]
     ], resize_keyboard=True)
     return markup
@@ -107,7 +107,7 @@ async def submit_benefit_kb():
             KeyboardButton(text=_("Saqlash ✅"))
         ],
         [
-            KeyboardButton(text=_("Back ⬅️"))
+            KeyboardButton(text=_("Orqaga ⬅️"))
         ]
     ], resize_keyboard=True)
     return markup

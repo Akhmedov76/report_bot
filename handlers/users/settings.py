@@ -12,13 +12,13 @@ router = Router()
 
 @router.message(F.text.in_(['Settings ⚙️', 'Настройки ⚙️', 'Sozlamalar ⚙️']))
 async def menu_handler(message: types.Message, state: FSMContext):
-    text = _("You are in the settings menu.")
+    text = _("Siz sozlamalar menyusidasiz.")
     await message.answer(text=text, reply_markup=await change_language_kb())
 
 
 @router.message(F.text.in_(["Tilni o'zgartirish 🌐", "Change language 🌐", "Изменить язык 🌐"]))
 async def change_language_handler(message: types.Message, state: FSMContext):
-    await message.answer(text=_("Choose your language:"), reply_markup=languages)
+    await message.answer(text=_("Tilingizni tanlang:"), reply_markup=languages)
     await state.set_state(ChangeLanguageState.language)
 
 
@@ -26,6 +26,6 @@ async def change_language_handler(message: types.Message, state: FSMContext):
 async def language_handler(message: types.Message, state: FSMContext):
     language = await get_lang_by_text(language=message.text)
     await state.update_data(language=language)
-    await message.answer(text=_("Language changed successfully.", locale=language),
+    await message.answer(text=_("Til muvaffaqiyatli o'zgartirildi.", locale=language),
                          reply_markup=await user_main_menu_keyboard_with_lang(language=language))
     await state.clear()
