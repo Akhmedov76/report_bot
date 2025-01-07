@@ -1,5 +1,5 @@
 import sqlalchemy
-from sqlalchemy import DateTime, func
+from sqlalchemy import DateTime, func, Enum
 
 from main.constants import UserStatus, ReportType, ReportStatus
 from main.database import metadata
@@ -24,8 +24,8 @@ reports = sqlalchemy.Table(
     sqlalchemy.Column("telegram_id", sqlalchemy.BigInteger, nullable=False),
     sqlalchemy.Column("amount", sqlalchemy.DECIMAL, nullable=False),
     sqlalchemy.Column("description", sqlalchemy.String, nullable=False),
-    sqlalchemy.Column("type", sqlalchemy.String, default=ReportType.income, nullable=False),
-    sqlalchemy.Column("status", sqlalchemy.String, default=ReportStatus.activated, nullable=False),
+    sqlalchemy.Column("type", Enum(ReportType), default=ReportType.income, nullable=False),
+    sqlalchemy.Column("status", Enum(ReportStatus), default=ReportStatus.activated, nullable=False),
     sqlalchemy.Column("created_at", DateTime(timezone=True), server_default=func.now(), nullable=False),
     sqlalchemy.Column("updated_at", DateTime(timezone=True), onupdate=func.now(), nullable=False)
 )
