@@ -4,6 +4,7 @@ from aiogram.fsm.context import FSMContext
 from loader import _
 from main.constants import ReportType
 from utils.db_commands.user import get_user_income_and_expense_reports
+from keyboards.default.user import user_main_menu_keyboard
 from utils.main_functions import create_report
 
 router = Router()
@@ -14,6 +15,9 @@ async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"))
     all_incomes: any or list = await get_user_income_and_expense_reports(chat_id=message.chat.id,
                                                                          report_type=ReportType.income.value)
+    if not all_incomes:
+        await message.answer(_("Sizda daromad bo'yicha hisobot yo'q!"), reply_markup=await user_main_menu_keyboard())
+        return
     income_report = create_report(data=all_incomes)
 
-    await message.reply(income_report['report_text'], parse_mode='HTML')
+    await message.reply(income_report['report_text'], parse_mode='HTML', reply_markup=await user_main_menu_keyboard())

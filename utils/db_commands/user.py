@@ -67,9 +67,10 @@ async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportT
     """Get user income and expense reports"""
     try:
         if report_type is None:
-            query = reports.select().where(reports.c.telegram_id == chat_id)
+            query = reports.select().where(reports.c.telegram_id == chat_id).order_by(reports.c.created_at.desc())
         else:
-            query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type)
+            query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type).order_by(
+                reports.c.created_at.desc())
         rows = await database.fetch_all(query=query)
         return rows
     except Exception as e:
