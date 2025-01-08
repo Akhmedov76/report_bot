@@ -3,7 +3,7 @@ from typing import Union
 from aiogram import types
 
 from logging_settings import logger
-from main.constants import UserStatus
+from main.constants import UserStatus, ReportType
 from main.database import database
 from main.models import users, reports
 
@@ -59,5 +59,20 @@ async def add_income_and_expense_reports(message: types.Message, data: dict) -> 
         return new_income
     except Exception as e:
         error_text = f"Error adding income report for user {message.chat.id}: {e}"
+        logger.error(error_text)
+        return None
+
+
+async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportType = None) -> Union[int, None]:
+    """Get user income and expense reports"""
+    try:
+        if report_type is None:
+            query = reports.select().where(reports.c.telegram_id == chat_id)
+        else:
+            query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type)
+        rows = await database.fetch_all(query=query)
+        return rows
+    except Exception as e:
+        error_text = f"Error retrieving user reports for user {chat_id}: {e}"
         logger.error(error_text)
         return None
