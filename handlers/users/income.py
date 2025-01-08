@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from aiogram import Router, F, types
 from aiogram.enums import ParseMode
 from aiogram.filters import StateFilter
@@ -26,7 +24,7 @@ async def branches_handler(message: types.Message, state: FSMContext):
 
 @router.message(StateFilter(IncomeAmountState.income_amount))
 async def income_amount_handler(message: types.Message, state: FSMContext):
-    amount = message.text.strip()
+    amount = message.text
     if not amount.isdigit():
         await message.answer(text=_('Miqdori notog\'ri kiritilgan. Miqdori raqamlardan iborat bo\'lishi kerak!'),
                              reply_markup=await cancel_kb())
@@ -41,7 +39,7 @@ async def income_amount_handler(message: types.Message, state: FSMContext):
 
 @router.message(StateFilter(IncomeDescriptionState.income_description))
 async def income_kb_handler(message: types.Message, state: FSMContext):
-    description = message.text.strip()
+    description = message.text
     if len(description) <= 2:
         await message.answer(
             text=_('Ma\'lumotlar notog\'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot kiriting!'),
@@ -60,11 +58,8 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
         action = callback_query.data
         if action == 'save_income':
             data = await state.get_data()
-            data['amount'] = Decimal(data['amount'])
             data['type'] = ReportType.income.value
             data['status'] = ReportStatus.activated.value
-            print(data)
-            print(type(data['amount']))
             new_income = await add_income_report(data=data, message=callback_query.message)
             if new_income:
                 await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))

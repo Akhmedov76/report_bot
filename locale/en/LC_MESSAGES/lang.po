@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-07 11:46+0500\n"
+"POT-Creation-Date: 2025-01-05 16:35+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -16,97 +16,90 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: handlers/users/backs.py:12
 msgid "Siz sozlamalar menyusidasiz.."
-msgstr "You are in the settings menu."
+msgstr ""
 
 #: handlers/users/backs.py:18
 msgid "Bekor qilindi 😉"
-msgstr "Canceled! 😉"
+msgstr ""
 
 #: handlers/users/commands.py:13
 msgid "Fikr-mulohaza"
-msgstr "Feedback"
+msgstr ""
 
 #: handlers/users/commands.py:16
 msgid "Iltimos, fikr-mulohazangizni kiriting 👇"
-msgstr "Please enter your feedback 👇"
+msgstr ""
 
 #: handlers/users/commands.py:39
 msgid ""
 "Fikr-mulohaza adminlarga muvaffaqiyatli yuborildi. Fikr-mulohazangiz "
 "uchun rahmat! 😊"
-msgstr "Feedback successfully sent to admins. Your feedback "
-"thanks for! 😊"
+msgstr ""
 
 #: handlers/users/contact.py:10
 #, fuzzy
 msgid "📲 Aloqa markazi: 1174 or (71) 203-66-66"
 msgstr "📲 Call center: 1174 or (71) 203-66-66"
 
-#: handlers/users/cost.py:18
+#: handlers/users/cost.py:17
 msgid ""
 "Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
-msgstr "Enter your cost. For example: 100000. Only numbers"
-"must be!"
+msgstr ""
 
-#: handlers/users/cost.py:27
+#: handlers/users/cost.py:26
 msgid "Miqdori notog'ri kiritilgan. Miqdorni to'g'ri kiriting."
 msgstr ""
 
-#: handlers/users/cost.py:31 handlers/users/income.py:35
+#: handlers/users/cost.py:30 handlers/users/income.py:31
 msgid "Qo'shimcha malumot kiriting! 📝"
 msgstr ""
 
-#: handlers/users/cost.py:33 handlers/users/income.py:37
+#: handlers/users/cost.py:32 handlers/users/income.py:33
 msgid "Tavsifni kiriting..."
 msgstr ""
 
-#: handlers/users/cost.py:43 handlers/users/income.py:47
+#: handlers/users/cost.py:41 handlers/users/income.py:43
 msgid ""
 "Ma'lumotlar notog'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot "
 "kiriting!"
 msgstr ""
 
-#: handlers/users/cost.py:57
+#: handlers/users/cost.py:54
 msgid "Xarajat muvaffaqiyatli saqlandi! ✅"
 msgstr ""
 
-#: handlers/users/cost.py:59
+#: handlers/users/cost.py:56
 msgid "Xarajat saqlanmadi. ❌"
-msgstr ""
-
-#: handlers/users/cost.py:63 handlers/users/income.py:72
-#: handlers/users/income.py:81
-msgid "Xatolik yuz berdi! Iltimos, bizda qayta urinib ko'ring."
 msgstr ""
 
 #: handlers/users/cost_report.py:12
 msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
 msgstr ""
 
-#: handlers/users/income.py:22
+#: handlers/users/income.py:18
 msgid ""
 "Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
 msgstr ""
 
-#: handlers/users/income.py:31
+#: handlers/users/income.py:27
 msgid "Miqdori notog'ri kiritilgan. Miqdori raqamlardan iborat bo'lishi kerak!"
 msgstr ""
 
-#: handlers/users/income.py:70
+#: handlers/users/income.py:56
 msgid "Daromadingiz muvaffaqiyatli saqlandi! ✅"
 msgstr ""
 
-#: handlers/users/income.py:74
+#: handlers/users/income.py:58
 msgid "Daromadingiz saqlanmadi. ❌"
 msgstr ""
 
-#: handlers/users/income.py:76
+#: handlers/users/income.py:60
 msgid "Siz asosiy menyudasiz !"
 msgstr ""
 
@@ -127,7 +120,7 @@ msgid "Til muvaffaqiyatli o'zgartirildi."
 msgstr ""
 
 #: handlers/users/start.py:24
-msgid "Xush kelibsiz xo'jayin 😊"
+msgid "Xush kelibsiz mening xo'jayinw 😊"
 msgstr ""
 
 #: handlers/users/start.py:27
@@ -158,19 +151,19 @@ msgid "Telefon raqamni ulashish ☎️"
 msgstr ""
 
 #: keyboards/default/report_kb.py:10
-msgid "Daromad bo'yicha hisobot📊"
+msgid "Daromad bo'yicha hisobot🤑"
 msgstr ""
 
 #: keyboards/default/report_kb.py:11
-msgid "Xarajatlar bo'yicha hisobot📉 "
+msgid "Xarajatlar bo'yicha hisobot💸"
 msgstr ""
 
 #: keyboards/default/user.py:10 keyboards/default/user.py:30
-msgid "Daromad 📊"
+msgid "Daromad 💸"
 msgstr ""
 
 #: keyboards/default/user.py:11 keyboards/default/user.py:31
-msgid "Xarajat 📉"
+msgid "Xarajat 💰"
 msgstr ""
 
 #: keyboards/default/user.py:14 keyboards/default/user.py:35
@@ -292,19 +285,4 @@ msgstr ""
 
 #~ msgid "Back ⬅️"
 #~ msgstr "Back ⬅️"
-
-#~ msgid "Xush kelibsiz mening xo'jayinw 😊"
-#~ msgstr ""
-
-#~ msgid "Daromad bo'yicha hisobot🤑"
-#~ msgstr ""
-
-#~ msgid "Xarajatlar bo'yicha hisobot💸"
-#~ msgstr ""
-
-#~ msgid "Daromad 💸"
-#~ msgstr ""
-
-#~ msgid "Xarajat 💰"
-#~ msgstr ""
 

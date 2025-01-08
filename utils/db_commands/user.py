@@ -45,8 +45,8 @@ async def add_income_report(message: types.Message, data: dict) -> Union[int, No
     """Add income report to database"""
     try:
         query = reports.insert().values(
-            telegram_id=int(message.chat.id),
-            amount=data.get("amount"),
+            telegram_id=message.chat.id,
+            amount=int(data.get("amount")),
             description=data.get("description"),
             type=data.get('type'),
             status=data.get('status'),
