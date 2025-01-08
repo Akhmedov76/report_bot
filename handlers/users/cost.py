@@ -4,10 +4,12 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import cancel_kb
+from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_cost_kb
 from loader import _
+from main.constants import ReportType, ReportStatus
 from states.user import CostAmountState, CostDescriptionState
+from utils.db_commands.user import add_expense_report
 
 router = Router()
 
@@ -44,20 +46,31 @@ async def cost_kb_handler(message: types.Message, state: FSMContext):
             reply_markup=await cancel_kb())
         return
     data = await state.get_data()
-    amount = data.get('cost_amount')
+    amount = data.get('amount')
+    await state.update_data(description=description)
     text = _(f'<b>💸Miqdor:</b> {amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_cost_kb())
 
 
-@router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
+@router.callback_query(lambda c: c.data in ['save_cost', 'cancel_cost'])
 async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
     try:
         action = callback_query.data
-        if action == 'save_income':
-            await callback_query.answer(_('Xarajat muvaffaqiyatli saqlandi! ✅'))
-        elif action == 'cancel_income':
+        if action == 'save_cost':
+            data = await state.get_data()
+            data['type'] = ReportType.cost.value
+            data['status'] = ReportStatus.activated.value
+            new_cost = await add_expense_report(data=data, message=callback_query.message)
+            if new_cost:
+                await callback_query.answer(text=_('Xarajat muvaffaqiyatli saqlandi! ✅'))
+            else:
+                await callback_query.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))
+        elif action == 'cancel_cost ':
             await callback_query.answer(_('Xarajat saqlanmadi. ❌'))
         await callback_query.message.delete_reply_markup()
+        await callback_query.message.answer(text=_("Siz asosiy menyudasiz !"),
+                                            reply_markup=await user_main_menu_keyboard())
+        await state.clear()
     except Exception as error:
         print(error)
         await callback_query.message.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))

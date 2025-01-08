@@ -7,8 +7,8 @@ from aiogram.types import CallbackQuery
 from keyboards.default.user import cancel_kb, user_main_menu_keyboard
 from keyboards.inline.user import save_income_kb
 from loader import _
-from states.user import IncomeAmountState, IncomeDescriptionState
 from main.constants import ReportType, ReportStatus
+from states.user import IncomeAmountState, IncomeDescriptionState
 from utils.db_commands.user import add_income_report
 
 router = Router()
