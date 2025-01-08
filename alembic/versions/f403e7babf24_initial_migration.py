@@ -1,14 +1,8 @@
-"""Added users and reports tables
+"""Initial migration
 
-<<<<<<<< HEAD:alembic/versions/ccb00287eec6_added_users_and_reports_tables.py
-Revision ID: ccb00287eec6
+Revision ID: f403e7babf24
 Revises: 
-Create Date: 2025-01-08 21:48:43.191189
-========
-Revision ID: 856c1c55c44f
-Revises: 
-Create Date: 2025-01-08 16:59:09.173813
->>>>>>>> 7d609110519850e2cb8d4a5619f3b0faf3625ab9:alembic/versions/856c1c55c44f_added_users_and_reports_tables.py
+Create Date: 2025-01-08 22:29:09.658292
 
 """
 from typing import Sequence, Union
@@ -18,11 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:alembic/versions/ccb00287eec6_added_users_and_reports_tables.py
-revision: str = 'ccb00287eec6'
-========
-revision: str = '856c1c55c44f'
->>>>>>>> 7d609110519850e2cb8d4a5619f3b0faf3625ab9:alembic/versions/856c1c55c44f_added_users_and_reports_tables.py
+revision: str = 'f403e7babf24'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -35,13 +25,8 @@ def upgrade() -> None:
     sa.Column('telegram_id', sa.BigInteger(), nullable=False),
     sa.Column('amount', sa.DECIMAL(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
-<<<<<<<< HEAD:alembic/versions/ccb00287eec6_added_users_and_reports_tables.py
     sa.Column('type', sa.String(), nullable=False),
     sa.Column('status', sa.String(), nullable=False),
-========
-    sa.Column('type', sa.Enum('income', 'expense', name='reporttype'), nullable=False),
-    sa.Column('status', sa.Enum('deactivated', 'activated', name='reportstatus'), nullable=False),
->>>>>>>> 7d609110519850e2cb8d4a5619f3b0faf3625ab9:alembic/versions/856c1c55c44f_added_users_and_reports_tables.py
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=False),
     sa.PrimaryKeyConstraint('id')

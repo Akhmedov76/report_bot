@@ -44,6 +44,7 @@ async def add_user(message: types.Message, data: dict) -> Union[int, None]:
 async def add_income_report(message: types.Message, data: dict) -> Union[int, None]:
     """Add income report to database"""
     try:
+        print(data.get('amount'), type(data.get('amount')))
         query = reports.insert().values(
             telegram_id=message.chat.id,
             amount=int(data.get("amount")),
@@ -53,6 +54,7 @@ async def add_income_report(message: types.Message, data: dict) -> Union[int, No
             created_at=message.date,
             updated_at=message.date
         ).returning(reports.c.id)
+        print(query)
         new_income = await database.execute(query=query)
         return new_income
     except Exception as e:
