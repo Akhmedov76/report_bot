@@ -9,7 +9,7 @@ from keyboards.inline.user import save_income_kb
 from loader import _
 from main.constants import ReportType, ReportStatus
 from states.user import IncomeAmountState, IncomeDescriptionState
-from utils.db_commands.user import add_income_report
+from utils.db_commands.user import add_income_and_expense_reports
 
 router = Router()
 
@@ -60,7 +60,7 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
             data = await state.get_data()
             data['type'] = ReportType.income.value
             data['status'] = ReportStatus.activated.value
-            new_income = await add_income_report(data=data, message=callback_query.message)
+            new_income = await add_income_and_expense_reports(data=data, message=callback_query.message)
             if new_income:
                 await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))
             else:

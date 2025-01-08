@@ -9,7 +9,7 @@ from keyboards.inline.user import save_cost_kb
 from loader import _
 from main.constants import ReportType, ReportStatus
 from states.user import CostAmountState, CostDescriptionState
-from utils.db_commands.user import add_expense_report
+from utils.db_commands.user import add_income_and_expense_reports
 
 router = Router()
 
@@ -29,7 +29,7 @@ async def cost_amount_handler(message: types.Message, state: FSMContext):
         await message.answer(text=_('Miqdori notog\'ri kiritilgan. Miqdorni to\'g\'ri kiriting.'),
                              reply_markup=await cancel_kb())
         return
-    await state.update_data(cost_amount=amount)
+    await state.update_data(amount=amount)
     await message.answer(text=_(
         "Qo\'shimcha malumot kiriting! 📝"),
         reply_markup=types.ForceReply(input_field_placeholder=_("Tavsifni kiriting..."))
@@ -58,9 +58,10 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
         action = callback_query.data
         if action == 'save_cost':
             data = await state.get_data()
-            data['type'] = ReportType.cost.value
+            data['type'] = ReportType.expense.value
             data['status'] = ReportStatus.activated.value
-            new_cost = await add_expense_report(data=data, message=callback_query.message)
+            print(data, 'data')
+            new_cost = await add_income_and_expense_reports(data=data, message=callback_query.message)
             if new_cost:
                 await callback_query.answer(text=_('Xarajat muvaffaqiyatli saqlandi! ✅'))
             else:
