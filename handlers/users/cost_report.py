@@ -12,7 +12,7 @@ router = Router()
     F.text.in_(["Xarajatlar bo'yicha hisobot📉", "Xarajatlar bo'yicha hisobot📉", "Xarajatlar bo'yicha hisobot📉"]))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"))
-    all_incomes = await get_user_income_and_expense_reports(chat_id=message.chat.id,
-                                                            report_type=ReportType.expense.value)
+    all_incomes: any or list= await get_user_income_and_expense_reports(chat_id=message.chat.id,
+                                                                 report_type=ReportType.expense.value)
     for income in all_incomes:
-        print(income)
+        print(income['amount'])
