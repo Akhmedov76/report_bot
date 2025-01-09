@@ -49,7 +49,8 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
     amount = data.get('amount')
     await state.update_data(description=description)
     text = _(f'<b>💸Miqdor:</b> {amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
-    await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
+    send_message = await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
+    await state.update_data(send_message_id=send_message.message_id)
 
 
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
@@ -73,4 +74,5 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
         await state.clear()
     except Exception as e:
         print(e)
-        await callback_query.message.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))
+        await callback_query.message.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'),
+                                            reply_markup=await user_main_menu_keyboard())
