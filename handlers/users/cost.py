@@ -61,7 +61,6 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
             data = await state.get_data()
             data['type'] = ReportType.expense.value
             data['status'] = ReportStatus.activated.value
-            print(data, 'data')
             new_cost = await add_income_and_expense_reports(data=data, message=callback_query.message)
             if new_cost:
                 await callback_query.answer(text=_('Xarajat muvaffaqiyatli saqlandi! ✅'))
