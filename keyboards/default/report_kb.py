@@ -27,6 +27,9 @@ async def report_date_kb():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
+                KeyboardButton(text=_("Hammasi 📅")),
+            ],
+            [
                 KeyboardButton(text=_("Oxirgi 3 oylik hisobot 📊")),
                 KeyboardButton(text=_("Oxirgi 1 oylik hisobot 📊"))
             ],

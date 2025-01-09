@@ -27,7 +27,9 @@ async def cost_filter_date_handler(message: types.Message, state: FSMContext):
 async def choose_cost_filter_date(message: types.Message, state: FSMContext):
     user_text = message.text
     filter_date = None
-    if user_text == _("Oxirgi 3 oylik hisobot 📊"):
+    if user_text == _("Hammasi 📅"):
+        filter_date = None
+    elif user_text == _("Oxirgi 3 oylik hisobot 📊"):
         filter_date = datetime.now().utcnow() - timedelta(days=93)
     elif user_text == _("Oxirgi 1 oylik hisobot 📊"):
         filter_date = datetime.now().utcnow() - timedelta(days=31)
