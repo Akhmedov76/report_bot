@@ -18,7 +18,7 @@ def create_report(data):
     for index, report in enumerate(data):
         new_amount = "{:,}".format(report['amount']).replace(",", " ")
         created_at = change_utc_to_local(str(report['created_at']))
-        report_text += f"{index + 1}. {new_amount} so'm, {report['description']}, {created_at}" + "\n \n"
+        report_text += f"{index + 1}. {str(new_amount)} so'm, {report['description']}, {created_at}" + "\n \n"
         report_summ += report['amount']
     report_summ = "{:,}".format(report_summ).replace(",", " ")
     report_text += f"✅ Umumiy hisob: {report_summ} so'm"

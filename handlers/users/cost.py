@@ -48,7 +48,8 @@ async def cost_kb_handler(message: types.Message, state: FSMContext):
     data = await state.get_data()
     amount = data.get('amount')
     await state.update_data(description=description)
-    text = _(f'<b>💸Miqdor:</b> {amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
+    amount = "{:,}".format(amount).replace(",", " ")
+    text = _(f'<b>💸Miqdor:</b> {str(amount)} so\'m\n\n<b>📝Tavsif:</b> {description}')
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_cost_kb())
 
 
