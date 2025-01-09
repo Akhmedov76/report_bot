@@ -7,8 +7,15 @@ async def report_main_kb():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
+                KeyboardButton(text=_("Umumiy hisobot 📊"))
+
+            ],
+            [
                 KeyboardButton(text=_("Daromad bo'yicha hisobot📊")),
                 KeyboardButton(text=_("Xarajatlar bo'yicha hisobot📉 ")),
+            ],
+            [
+                KeyboardButton(text=_("Bekor qilish ❌"))
             ]
         ], resize_keyboard=True
     )
