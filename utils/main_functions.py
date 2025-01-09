@@ -4,6 +4,7 @@ import pytz
 
 
 def change_utc_to_local(utc_time):
+    print(utc_time)
     utc_datetime = datetime.fromisoformat(utc_time)
     tashkent_tz = pytz.timezone('Asia/Tashkent')
     tashkent_time = utc_datetime.astimezone(tashkent_tz)

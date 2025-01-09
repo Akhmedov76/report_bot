@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Union
 
 from aiogram import types
@@ -63,11 +64,17 @@ async def add_income_and_expense_reports(message: types.Message, data: dict) -> 
         return None
 
 
-async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportType = None) -> Union[int, None]:
+async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportType = None,
+                                              filter_date: datetime = None) -> \
+        Union[int, None]:
     """Get user income and expense reports"""
     try:
         if report_type is None:
             query = reports.select().where(reports.c.telegram_id == chat_id).order_by(reports.c.created_at.desc())
+        elif filter_date is not None:
+            query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type,
+                                           reports.c.created_at >= filter_date).order_by(
+                reports.c.created_at.desc())
         else:
             query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type).order_by(
                 reports.c.created_at.desc())

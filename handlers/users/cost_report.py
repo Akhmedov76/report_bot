@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from aiogram import Router, F, types
 from aiogram.fsm.context import FSMContext
 
@@ -16,11 +18,14 @@ router = Router()
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Hisobot davomiyligini tanlang 😊 "),
                          reply_markup=await report_date_kb())
-    # all_costs: any or list = await get_user_income_and_expense_reports(chat_id=message.chat.id,
-    #                                                                    report_type=ReportType.expense.value)
-    # if not all_costs:
-    #     await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"), reply_markup=await user_main_menu_keyboard())
-    #     return
-    # cost_report = create_report(data=all_costs)
-    #
-    # await message.reply(cost_report['report_text'], reply_markup=await user_main_menu_keyboard())
+
+    filter_date = datetime.now().utcnow() - timedelta(days=1)
+    all_costs: any or list = await get_user_income_and_expense_reports(chat_id=message.chat.id,
+                                                                       report_type=ReportType.expense.value,
+                                                                       filter_date=filter_date)
+    if not all_costs:
+        await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"), reply_markup=await user_main_menu_keyboard())
+        return
+    cost_report = create_report(data=all_costs)
+
+    await message.reply(cost_report['report_text'], reply_markup=await user_main_menu_keyboard())
