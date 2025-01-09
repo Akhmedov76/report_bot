@@ -24,5 +24,6 @@ async def menu_handler(message: types.Message, state: FSMContext):
 @router.callback_query(lambda c: c.data in ['cancel_pagination'])
 async def cancel_pagination_handler(callback_query: CallbackQuery, state: FSMContext):
     await callback_query.message.answer(_("Siz asosiy menyuga qaytadiz.. ⬅️"),
-                                           reply_markup=await user_main_menu_keyboard())
+                                        reply_markup=await user_main_menu_keyboard())
     await callback_query.answer()
+    await state.clear()
