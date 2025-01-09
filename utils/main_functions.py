@@ -49,4 +49,3 @@ def create_global_report(data):
         "report_summ": report_summ
     }
     return return_data
-

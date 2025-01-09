@@ -65,7 +65,10 @@ async def add_income_and_expense_reports(message: types.Message, data: dict) -> 
 async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportType = None,
                                               filter_date: datetime = None) -> \
         Union[int, None]:
-    """Get user income and expense reports"""
+    """
+    Get user income and expense reports
+    :param chat_id: Chat ID of user
+    """
     try:
         if report_type is None:
             query = reports.select().where(reports.c.telegram_id == chat_id).order_by(reports.c.created_at.desc())
@@ -81,5 +84,21 @@ async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportT
         return rows
     except Exception as e:
         error_text = f"Error retrieving user reports for user {chat_id}: {e}"
+        logger.error(error_text)
+        return None
+
+
+async def get_one_report(data_id: int) -> Union[dict, None]:
+    """
+        Get one report by id
+        :param data_id:
+        :return: None or dict with report data
+    """
+    try:
+        query = reports.select().where(reports.c.id == data_id)
+        row = await database.fetch_one(query=query)
+        return dict(row) if row else None
+    except Exception as e:
+        error_text = f"Error retrieving report with ID {data_id}: {e}"
         logger.error(error_text)
         return None
