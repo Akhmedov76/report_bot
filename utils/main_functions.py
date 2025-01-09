@@ -16,7 +16,7 @@ def create_report(data):
     report_summ = 0
     report_text += f"\n 📝 Jami hisobotlar soni: {len(data)} ta\n\n"
     for index, report in enumerate(data):
-        new_amount = "{:,}".format(report['amount']).replace(",", " ")
+        new_amount = f"{int(report['amount']):,}".replace(",", " ")
         created_at = change_utc_to_local(str(report['created_at']))
         report_text += f"{index + 1}. {str(new_amount)} so'm, {report['description']}, {created_at}" + "\n \n"
         report_summ += report['amount']
