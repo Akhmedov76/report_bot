@@ -49,8 +49,7 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
     amount = data.get('amount')
     await state.update_data(description=description)
     text = _(f'<b>💸Miqdor:</b> {amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
-    send_message = await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
-    await state.update_data(send_message_id=send_message.message_id)
+    await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
 
 
 @router.callback_query(lambda c: c.data in ['save_income', 'cancel_income'])
