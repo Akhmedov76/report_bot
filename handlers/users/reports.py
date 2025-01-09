@@ -6,6 +6,7 @@ from aiogram.fsm.context import FSMContext
 
 from keyboards.default.report_kb import report_main_kb, report_date_kb
 from keyboards.default.user import user_main_menu_keyboard
+from keyboards.inline.user import number_of_reports_kb
 from main.constants import ReportType
 from states.user import ReportStateForIncome, GlobalReportState
 from utils.db_commands.user import get_user_income_and_expense_reports
@@ -50,6 +51,7 @@ async def choose_income_filter_date(message: types.Message, state: FSMContext):
         await state.clear()
         return
     income_report = create_global_report(data=all_incomes)
+    inline_buttons = await number_of_reports_kb(all_incomes)
 
-    await message.reply(income_report['report_text'], parse_mode='HTML', reply_markup=await user_main_menu_keyboard())
+    await message.reply(income_report['report_text'], parse_mode='HTML', reply_markup=inline_buttons)
     await state.clear()

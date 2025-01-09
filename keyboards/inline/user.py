@@ -42,3 +42,20 @@ async def save_cost_kb():
         ]
     )
     return markup
+
+
+# for reports
+async def number_of_reports_kb(data):
+    markup = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text=str(i), callback_data=f"report_page_{i}")
+                for i in range(1, len(data) + 1)
+            ],
+            [
+                InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
+                InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
+            ]
+        ]
+    )
+    return markup
