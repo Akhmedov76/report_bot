@@ -4,7 +4,7 @@ from typing import Union
 from aiogram import types
 
 from logging_settings import logger
-from main.constants import UserStatus, ReportType
+from main.constants import UserStatus, ReportType, ReportStatus
 from main.database import database
 from main.models import users, reports
 
@@ -73,7 +73,8 @@ async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportT
             query = reports.select().where(reports.c.telegram_id == chat_id).order_by(reports.c.created_at.desc())
         elif filter_date is not None:
             query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type,
-                                           reports.c.created_at >= filter_date).order_by(
+                                           reports.c.created_at >= filter_date,
+                                           reports.c.status == ReportStatus.activated.value).order_by(
                 reports.c.created_at.desc())
         else:
             query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type).order_by(
