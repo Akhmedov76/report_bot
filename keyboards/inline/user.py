@@ -54,6 +54,7 @@ async def number_of_reports_kb(data):
             ],
             [
                 InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
+                InlineKeyboardButton(text=_("❌"), callback_data="cancel_pagination"),
                 InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
             ]
         ]
