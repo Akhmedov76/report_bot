@@ -64,3 +64,10 @@ class ReportStateForIncome(StatesGroup):
     This state is used to store the report message sent by the user.
     """
     waiting_for_report_date = State()
+
+
+class GlobalReportState(StatesGroup):
+    """
+    This state is used to store the global report message sent by the user.
+    """
+    waiting_for_report_date = State()
