@@ -26,7 +26,6 @@ async def cost_filter_date_handler(message: types.Message, state: FSMContext):
 @router.message(StateFilter(ReportStateForCost.waiting_for_report_date))
 async def choose_cost_filter_date(message: types.Message, state: FSMContext):
     user_text = message.text
-    print(user_text)
     filter_date = None
     if user_text == _("Oxirgi 3 oylik hisobot 📊"):
         filter_date = datetime.now().utcnow() - timedelta(days=93)
