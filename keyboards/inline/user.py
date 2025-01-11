@@ -63,9 +63,9 @@ async def number_of_reports_kb(data):
                             for page_index, chunk in enumerate(chunks)  # page_index will increment for each chunk
                         ] + [
                             [
-                                InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
+                                # InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
                                 InlineKeyboardButton(text=_("❌"), callback_data="cancel_pagination"),
-                                InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
+                                # InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
                             ]
                         ]
     )

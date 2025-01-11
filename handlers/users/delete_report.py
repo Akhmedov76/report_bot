@@ -65,7 +65,6 @@ async def confirm_delete_report(callback_query: CallbackQuery, state: FSMContext
     # Retrieve the report ID from the state
     user_data = await state.get_data()
     report_id = user_data.get('report_id')
-    print(report_id)
     # If no report ID exists, return an error (this should not happen)
     if report_id is None:
         await callback_query.message.answer("No report ID found.", reply_markup=await user_main_menu_keyboard())
@@ -74,11 +73,10 @@ async def confirm_delete_report(callback_query: CallbackQuery, state: FSMContext
 
     # Delete the report from the database
     success = await update_status_report(report_id)
-    print(success)
     if success:
         # Send a confirmation message to the user
         await callback_query.message.answer(
-            f"Hisobot (ID: {report_id}) o'chirildi. ✅",
+            f"Hisobot o'chirildi. ✅",
             reply_markup=await user_main_menu_keyboard()
         )
     else:

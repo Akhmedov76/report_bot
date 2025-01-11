@@ -5,6 +5,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 
 from keyboards.default.report_kb import report_date_kb
+from keyboards.inline.user import number_of_reports_kb
 from loader import _
 from main.constants import ReportType
 from keyboards.default.user import user_main_menu_keyboard
@@ -45,6 +46,7 @@ async def choose_cost_filter_date(message: types.Message, state: FSMContext):
         await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"), reply_markup=await user_main_menu_keyboard())
         return
     cost_report = create_report(data=all_costs)
+    inline_buttons = await number_of_reports_kb(all_costs)
 
-    await message.reply(cost_report['report_text'], reply_markup=await user_main_menu_keyboard())
+    await message.reply(cost_report['report_text'], reply_markup=inline_buttons)
     await state.clear()
