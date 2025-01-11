@@ -46,17 +46,28 @@ async def save_cost_kb():
 
 # for reports
 async def number_of_reports_kb(data):
+    # Split the data into chunks of 5 items each
+    chunks = [data[i:i + 5] for i in range(0, len(data), 5)]
+
+    # Create the keyboard
     markup = InlineKeyboardMarkup(
         inline_keyboard=[
-            [
-                InlineKeyboardButton(text=str(i), callback_data=f"report_page_{i}")
-                for i in range(1, len(data) + 1)
-            ],
-            [
-                InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
-                InlineKeyboardButton(text=_("❌"), callback_data="cancel_pagination"),
-                InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
-            ]
-        ]
+                            [
+                                InlineKeyboardButton(
+                                    text=f"{index + (page_index * 5) + 1}",
+                                    # Add the page index to continue numbering
+                                    callback_data=f"report_page_{column.id}"
+                                )
+                                for index, column in enumerate(chunk)  # Index will start at 0 for each chunk
+                            ]
+                            for page_index, chunk in enumerate(chunks)  # page_index will increment for each chunk
+                        ] + [
+                            [
+                                InlineKeyboardButton(text=_("⬅️"), callback_data="previous_page"),
+                                InlineKeyboardButton(text=_("❌"), callback_data="cancel_pagination"),
+                                InlineKeyboardButton(text=_("➡️"), callback_data="next_page")
+                            ]
+                        ]
     )
+
     return markup
