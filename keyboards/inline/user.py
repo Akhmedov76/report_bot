@@ -71,3 +71,13 @@ async def number_of_reports_kb(data):
     )
 
     return markup
+
+
+async def delete_report_kb():
+    markup = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=_("O'chirish 🗑"), callback_data="delete_report")],
+            [InlineKeyboardButton(text=_("Orqaga qaytish ⬅️"), callback_data="back_to_main_menu")]
+        ]
+    )
+    return markup

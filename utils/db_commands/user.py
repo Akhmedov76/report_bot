@@ -71,14 +71,18 @@ async def get_user_income_and_expense_reports(chat_id: int, report_type: ReportT
     """
     try:
         if report_type is None:
-            query = reports.select().where(reports.c.telegram_id == chat_id).order_by(reports.c.created_at.desc())
+            query = reports.select().where(reports.c.telegram_id == chat_id,
+                                           reports.c.status == ReportStatus.activated.value).order_by(
+                reports.c.created_at.desc())
         elif filter_date is not None:
             query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type,
                                            reports.c.created_at >= filter_date,
                                            reports.c.status == ReportStatus.activated.value).order_by(
                 reports.c.created_at.desc())
         else:
-            query = reports.select().where(reports.c.telegram_id == chat_id, reports.c.type == report_type).order_by(
+            query = reports.select().where(reports.c.telegram_id == chat_id,
+                                           reports.c.status == ReportStatus.activated.value,
+                                           reports.c.type == report_type).order_by(
                 reports.c.created_at.desc())
         rows = await database.fetch_all(query=query)
         return rows
@@ -104,16 +108,21 @@ async def get_one_report(data_id: int) -> Union[dict, None]:
         return None
 
 
-async def update_status_report(data_id: int) -> Union[int, None]:
+async def update_status_report(data_id: int) -> Union[bool, None]:
     """
-    Update status report by id
-    :param data_id:
-    :return:
+    Update the status of the report by its ID.
+    :param data_id: The ID of the report to update.
+    :return: True if the update was successful, False if no rows were updated, None if an error occurred.
     """
     try:
         query = reports.update().where(reports.c.id == data_id).values(status=ReportStatus.deactivated.value)
         updated_rows = await database.execute(query=query)
-        return updated_rows
+
+        # If no rows were updated, return False
+        if updated_rows == 0:
+            return False
+
+        return True
     except Exception as e:
         error_text = f"Error updating report with ID {data_id}: {e}"
         logger.error(error_text)
