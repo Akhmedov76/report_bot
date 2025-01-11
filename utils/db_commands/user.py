@@ -95,7 +95,7 @@ async def get_one_report(data_id: int) -> Union[dict, None]:
         :return: None or dict with report data
     """
     try:
-        query = reports.select().where(reports.c.id == data_id)
+        query = reports.select().where(reports.c.id == data_id, reports.c.status == ReportStatus.activated.value)
         row = await database.fetch_one(query=query)
         return dict(row) if row else None
     except Exception as e:
@@ -104,13 +104,17 @@ async def get_one_report(data_id: int) -> Union[dict, None]:
         return None
 
 
-async def delete_user(data_id: int) -> Union[int, None]:
-    """Delete user by id"""
+async def update_status_report(data_id: int) -> Union[int, None]:
+    """
+    Update status report by id
+    :param data_id:
+    :return:
+    """
     try:
-        query = users.delete().where(users.c.id == data_id)
-        deleted_rows = await database.execute(query=query)
-        return deleted_rows
+        query = reports.update().where(reports.c.id == data_id).values(status=ReportStatus.deactivated.value)
+        updated_rows = await database.execute(query=query)
+        return updated_rows
     except Exception as e:
-        error_text = f"Error deleting user with ID {data_id}: {e}"
+        error_text = f"Error updating report with ID {data_id}: {e}"
         logger.error(error_text)
         return None
