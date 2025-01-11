@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-11 17:57+0500\n"
-"PO-Revision-Date: 2025-01-08 21:49+0500\n"
+"POT-Creation-Date: 2025-01-11 18:10+0500\n"
+"PO-Revision-Date: 2025-01-11 18:10+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
 "Language-Team: uz <LL@li.org>\n"
@@ -179,9 +179,8 @@ msgid ""
 msgstr ""
 
 #: handlers/users/start.py:37
-#, fuzzy
-msgid "Bot to'liq ishlashi uchun siz to'liq ismingizni kiritishingiz kerak"
-msgstr "Bot to'liq ishalshi uchun siz to'liq ismingizni kiritishingiz kerak"
+msgid "Ism familiyangizni kiriting 👇"
+msgstr ""
 
 #: handlers/users/start.py:49
 msgid "Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇"
@@ -293,19 +292,4 @@ msgstr ""
 #: keyboards/inline/user.py:79
 msgid "O'chirish 🗑"
 msgstr ""
-
-#~ msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
-#~ msgstr ""
-
-#~ msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
-#~ msgstr ""
-
-#~ msgid "⬅️"
-#~ msgstr ""
-
-#~ msgid "➡️"
-#~ msgstr ""
-
-#~ msgid "Bot to'liq ishalshi uchun siz to'liq ismingizni bilishingiz kerak"
-#~ msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-11 17:57+0500\n"
+"POT-Creation-Date: 2025-01-11 18:08+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -185,8 +185,8 @@ msgstr ""
 
 #: handlers/users/start.py:37
 #, fuzzy
-msgid "Bot to'liq ishlashi uchun siz to'liq ismingizni kiritishingiz kerak"
-msgstr "You need to know your full name for the bot to work properly"
+msgid "Ism familiyangizni kiriting 👇"
+msgstr "Enter your full name 👇"
 
 #: handlers/users/start.py:49
 msgid "Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇"
@@ -299,85 +299,4 @@ msgstr ""
 #, fuzzy
 msgid "O'chirish 🗑"
 msgstr "Delete ✍️"
-
-#~ msgid "Menu 🍕"
-#~ msgstr "Menu 🍕"
-
-#~ msgid "My orders 📖"
-#~ msgstr "My orders 📖"
-
-#~ msgid "Our branches 🏚"
-#~ msgstr "Our branches 🏚"
-
-#~ msgid "Contact ☎️"
-#~ msgstr "Contact ☎️"
-
-#~ msgid "Settings ⚙️"
-#~ msgstr "Settings ⚙️"
-
-#~ msgid "You are in the settings menu."
-#~ msgstr "You are in the settings menu."
-
-#~ msgid "Please enter your feedback 👇"
-#~ msgstr "Please enter your feedback 👇"
-
-#~ msgid "Feedback sent to admins successfully. Thank you for your feedback! 😊"
-#~ msgstr "Feedback sent to admins successfully. Thank you for your feedback! 😊"
-
-#~ msgid "Choose your language:"
-#~ msgstr "Choose your language:"
-
-#~ msgid "Language changed successfully."
-#~ msgstr "Language changed successfully."
-
-#~ msgid "Welcome back my hero 😊"
-#~ msgstr "Welcome back, my hero 😊"
-
-#~ msgid "Sorry, you have to enter your full name"
-#~ msgstr "Sorry, you have to enter your full name"
-
-#~ msgid "Please, enter your phone number by the button below 👇"
-#~ msgstr "Please, enter your phone number using the button below 👇"
-
-#~ msgid "You have successfully registered ✅"
-#~ msgstr "You have successfully registered ✅"
-
-#~ msgid "Sorry, please try again later 😔"
-#~ msgstr "Sorry, please try again later 😔"
-
-#~ msgid "Share phone number ☎️"
-#~ msgstr "Share phone number ☎️"
-
-#~ msgid "Change language 🌐"
-#~ msgstr "Change language 🌐"
-
-#~ msgid "Back ⬅️"
-#~ msgstr "Back ⬅️"
-
-#~ msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
-#~ msgstr ""
-
-#~ msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
-#~ msgstr ""
-
-#~ msgid "Xush kelibsiz mening xo'jayinw 😊"
-#~ msgstr ""
-
-#~ msgid "Daromad bo'yicha hisobot🤑"
-#~ msgstr ""
-
-#~ msgid "Xarajatlar bo'yicha hisobot💸"
-#~ msgstr ""
-
-#~ msgid "Daromad 💸"
-#~ msgstr ""
-
-#~ msgid "Xarajat 💰"
-#~ msgstr ""
-
-#~ msgid "⬅️"
-#~ msgstr ""
-
-#~ msgid "➡️"
-#~ msgstr ""
 
