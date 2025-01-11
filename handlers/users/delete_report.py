@@ -25,3 +25,4 @@ async def delete_report_handler(callback_query: CallbackQuery, state: FSMContext
     await callback_query.answer()
     report_id = callback_query.data.split("_")[2]  # Get the ID from callback_data
     await callback_query.message.answer(f"You selected report ID: {report_id}")
+    await state.clear()
