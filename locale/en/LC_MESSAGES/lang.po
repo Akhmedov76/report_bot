@@ -293,7 +293,7 @@ msgstr "Go back ⬅️"
 
 #: keyboards/inline/user.py:67
 msgid "❌"
-msgstr ""
+msgstr "❌"
 
 #: keyboards/inline/user.py:79
 #, fuzzy

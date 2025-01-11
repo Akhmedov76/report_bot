@@ -20,7 +20,7 @@ msgstr ""
 
 #: handlers/users/backs.py:13
 msgid "Siz sozlamalar menyusidasiz.."
-msgstr ""
+msgstr "Siz sozlamalar menyusidasiz.."
 
 #: handlers/users/backs.py:19
 msgid "Bekor qilindi 😉"
