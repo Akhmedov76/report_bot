@@ -34,7 +34,7 @@ async def language_handler(message: types.Message, state: FSMContext):
     language = await get_lang_by_text(language=message.text)
     await state.update_data(language=language)
 
-    text = _("Kechirasiz, siz to'liq ismingizni kiritishingiz kerak", locale=language)
+    text = _("Bot to'liq ishlashi uchun siz to'liq ismingizni kiritishingiz kerak", locale=language)
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
     await state.set_state(RegisterState.full_name)
 

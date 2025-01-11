@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-11 10:10+0500\n"
+"POT-Creation-Date: 2025-01-11 17:57+0500\n"
 "PO-Revision-Date: 2024-11-20 16:41+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -51,25 +51,25 @@ msgstr ""
 msgid "📲 Aloqa markazi: 1174 or (71) 203-66-66"
 msgstr "📲 Call center: 1174 or (71) 203-66-66"
 
-#: handlers/users/cost.py:20
+#: handlers/users/cost.py:21
 msgid ""
 "Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
 msgstr "Enter your cost. For example: 100000. Must be  with only numbers!"
 
-#: handlers/users/cost.py:29
+#: handlers/users/cost.py:30
 msgid "Miqdori notog'ri kiritilgan. Miqdorni to'g'ri kiriting."
 msgstr "The amount entered is incorrect. Please enter the correct amount."
 
-#: handlers/users/cost.py:33 handlers/users/income.py:33
+#: handlers/users/cost.py:34 handlers/users/income.py:34
 msgid "Qo'shimcha malumot kiriting! 📝"
 msgstr "Enter additional information! 📝"
 
-#: handlers/users/cost.py:35 handlers/users/income.py:35
+#: handlers/users/cost.py:36 handlers/users/income.py:36
 msgid "Tavsifni kiriting..."
 msgstr "Enter description..."
 
-#: handlers/users/cost.py:45 handlers/users/income.py:45
+#: handlers/users/cost.py:46 handlers/users/income.py:46
 msgid ""
 "Ma'lumotlar notog'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot "
 "kiriting!"
@@ -77,76 +77,82 @@ msgstr ""
 "The information entered is incorrect. Please enter information longer "
 "than 5 characters."
 
-#: handlers/users/cost.py:66
+#: handlers/users/cost.py:67
 msgid "Xarajat muvaffaqiyatli saqlandi! ✅"
 msgstr "Cost saved successfully! ✅"
 
-#: handlers/users/cost.py:68 handlers/users/cost.py:77
-#: handlers/users/income.py:68 handlers/users/income.py:77
+#: handlers/users/cost.py:69 handlers/users/cost.py:78
+#: handlers/users/income.py:69 handlers/users/income.py:78
 msgid "Xatolik yuz berdi! Iltimos, bizda qayta urinib ko'ring."
 msgstr "An error occurred! Please try again with us."
 
-#: handlers/users/cost.py:70
+#: handlers/users/cost.py:71
 msgid "Xarajat saqlanmadi. ❌"
 msgstr "Cost not saved. ❌"
 
-#: handlers/users/cost.py:72 handlers/users/income.py:72
+#: handlers/users/cost.py:73 handlers/users/income.py:73
 msgid "Siz asosiy menyudasiz !"
 msgstr "You are in the main menu!"
 
-#: handlers/users/cost_report.py:21 handlers/users/income_report.py:20
+#: handlers/users/cost_report.py:22 handlers/users/income_report.py:21
 #: handlers/users/reports.py:26
 msgid "Hisobot davomiyligini tanlang 😊 "
 msgstr "Choose the duration of the report 😊"
 
-#: handlers/users/cost_report.py:30 handlers/users/income_report.py:29
+#: handlers/users/cost_report.py:31 handlers/users/income_report.py:30
 #: handlers/users/reports.py:35 keyboards/default/report_kb.py:30
 msgid "Hammasi 📅"
 msgstr "All 📅"
 
-#: handlers/users/cost_report.py:32 handlers/users/income_report.py:31
+#: handlers/users/cost_report.py:33 handlers/users/income_report.py:32
 #: handlers/users/reports.py:37 keyboards/default/report_kb.py:33
 msgid "Oxirgi 3 oylik hisobot 📊"
 msgstr "Last 3 months report 📊"
 
-#: handlers/users/cost_report.py:34 handlers/users/income_report.py:33
+#: handlers/users/cost_report.py:35 handlers/users/income_report.py:34
 #: handlers/users/reports.py:39 keyboards/default/report_kb.py:34
 msgid "Oxirgi 1 oylik hisobot 📊"
 msgstr "Last 1 month report 📊"
 
-#: handlers/users/cost_report.py:36 handlers/users/income_report.py:35
+#: handlers/users/cost_report.py:37 handlers/users/income_report.py:36
 #: handlers/users/reports.py:41 keyboards/default/report_kb.py:37
 msgid "Oxirgi 1 haftalik hisobot 📊"
 msgstr "Last 1 week report 📊"
 
-#: handlers/users/cost_report.py:38 handlers/users/income_report.py:37
+#: handlers/users/cost_report.py:39 handlers/users/income_report.py:38
 #: handlers/users/reports.py:43 keyboards/default/report_kb.py:38
 msgid "Oxirgi 1 kunlik hisobot 📊"
 msgstr "Last 1 day report 📊"
 
-#: handlers/users/cost_report.py:45
+#: handlers/users/cost_report.py:46
 msgid "Sizning xarajatlaringiz hali bo'lmagan!"
 msgstr "Your expenses haven't happened yet!"
 
-#: handlers/users/income.py:20
+#: handlers/users/delete_report.py:45
+msgid ""
+"<b>Hisobotni o'chirmoqchimisiz?</b>\n"
+"\n"
+msgstr ""
+
+#: handlers/users/income.py:21
 msgid ""
 "Daromadni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
 msgstr "Enter the income. For example: 100000. Must contain only numbers!"
 
-#: handlers/users/income.py:29
+#: handlers/users/income.py:30
 msgid "Miqdori notog'ri kiritilgan. Miqdori raqamlardan iborat bo'lishi kerak!"
 msgstr "The amount entered is incorrect. The amount must consist of numbers!"
 
-#: handlers/users/income.py:66
+#: handlers/users/income.py:67
 msgid "Daromadingiz muvaffaqiyatli saqlandi! ✅"
 msgstr "Your income has been successfully saved! ✅"
 
-#: handlers/users/income.py:70
+#: handlers/users/income.py:71
 msgid "Daromadingiz saqlanmadi. ❌"
 msgstr "Daromadingiz saqlanmadi. ❌"
 
-#: handlers/users/income_report.py:44
+#: handlers/users/income_report.py:45
 msgid "Sizda daromad bo'yicha hisobot yo'q!"
 msgstr "You don't have an income statement!"
 
@@ -178,8 +184,9 @@ msgid ""
 msgstr ""
 
 #: handlers/users/start.py:37
-msgid "Kechirasiz, siz to'liq ismingizni kiritishingiz kerak"
-msgstr "Sorry, you must enter your full name."
+#, fuzzy
+msgid "Bot to'liq ishlashi uchun siz to'liq ismingizni kiritishingiz kerak"
+msgstr "You need to know your full name for the bot to work properly"
 
 #: handlers/users/start.py:49
 msgid "Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇"
@@ -280,21 +287,18 @@ msgstr "Delete ✍️"
 msgid "Yaratish ➕"
 msgstr "Create ➕"
 
-#: keyboards/inline/user.py:11
+#: keyboards/inline/user.py:11 keyboards/inline/user.py:80
 msgid "Orqaga qaytish ⬅️"
 msgstr "Go back ⬅️"
 
-#: keyboards/inline/user.py:56
-msgid "⬅️"
-msgstr ""
-
-#: keyboards/inline/user.py:57
+#: keyboards/inline/user.py:67
 msgid "❌"
 msgstr ""
 
-#: keyboards/inline/user.py:58
-msgid "➡️"
-msgstr ""
+#: keyboards/inline/user.py:79
+#, fuzzy
+msgid "O'chirish 🗑"
+msgstr "Delete ✍️"
 
 #~ msgid "Menu 🍕"
 #~ msgstr "Menu 🍕"
@@ -369,5 +373,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Xarajat 💰"
+#~ msgstr ""
+
+#~ msgid "⬅️"
+#~ msgstr ""
+
+#~ msgid "➡️"
 #~ msgstr ""
 
