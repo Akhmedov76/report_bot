@@ -5,4 +5,4 @@ pybabel compile -d locale -D lang
 ————————————————————
 pybabel extract . -o locale/lang.pot
 pybabel update -d locale -D lang -i locale/lang.pot
-pybabel compile -d locale -D lang
+pybabel update -d locale -D lang -i locale/lang.pot

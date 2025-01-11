@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-08 21:49+0500\n"
+"POT-Creation-Date: 2025-01-11 10:10+0500\n"
 "PO-Revision-Date: 2025-01-08 21:49+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -18,12 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: handlers/users/backs.py:12
+#: handlers/users/backs.py:13
 msgid "Siz sozlamalar menyusidasiz.."
 msgstr ""
 
-#: handlers/users/backs.py:18
+#: handlers/users/backs.py:19
 msgid "Bekor qilindi 😉"
+msgstr ""
+
+#: handlers/users/backs.py:26
+msgid "Siz asosiy menyuga qaytadiz.. ⬅️"
 msgstr ""
 
 #: handlers/users/commands.py:13
@@ -44,45 +48,79 @@ msgstr ""
 msgid "📲 Aloqa markazi: 1174 or (71) 203-66-66"
 msgstr ""
 
-#: handlers/users/cost.py:18
+#: handlers/users/cost.py:20
 msgid ""
 "Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat "
 "bo'lishi kerak!"
 msgstr ""
 
-#: handlers/users/cost.py:27
+#: handlers/users/cost.py:29
 msgid "Miqdori notog'ri kiritilgan. Miqdorni to'g'ri kiriting."
 msgstr ""
 
-#: handlers/users/cost.py:31 handlers/users/income.py:33
+#: handlers/users/cost.py:33 handlers/users/income.py:33
 msgid "Qo'shimcha malumot kiriting! 📝"
 msgstr ""
 
-#: handlers/users/cost.py:33 handlers/users/income.py:35
+#: handlers/users/cost.py:35 handlers/users/income.py:35
 msgid "Tavsifni kiriting..."
 msgstr ""
 
-#: handlers/users/cost.py:43 handlers/users/income.py:45
+#: handlers/users/cost.py:45 handlers/users/income.py:45
 msgid ""
 "Ma'lumotlar notog'ri kiritilgan. Iltimos, 5 ta belgidan kattaroq malumot "
 "kiriting!"
 msgstr ""
 
-#: handlers/users/cost.py:57
+#: handlers/users/cost.py:66
 msgid "Xarajat muvaffaqiyatli saqlandi! ✅"
 msgstr ""
 
-#: handlers/users/cost.py:59
-msgid "Xarajat saqlanmadi. ❌"
-msgstr ""
-
-#: handlers/users/cost.py:63 handlers/users/income.py:67
-#: handlers/users/income.py:76
+#: handlers/users/cost.py:68 handlers/users/cost.py:77
+#: handlers/users/income.py:68 handlers/users/income.py:77
 msgid "Xatolik yuz berdi! Iltimos, bizda qayta urinib ko'ring."
 msgstr ""
 
-#: handlers/users/cost_report.py:12
-msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+#: handlers/users/cost.py:70
+msgid "Xarajat saqlanmadi. ❌"
+msgstr ""
+
+#: handlers/users/cost.py:72 handlers/users/income.py:72
+msgid "Siz asosiy menyudasiz !"
+msgstr ""
+
+#: handlers/users/cost_report.py:21 handlers/users/income_report.py:20
+#: handlers/users/reports.py:26
+msgid "Hisobot davomiyligini tanlang 😊 "
+msgstr ""
+
+#: handlers/users/cost_report.py:30 handlers/users/income_report.py:29
+#: handlers/users/reports.py:35 keyboards/default/report_kb.py:30
+msgid "Hammasi 📅"
+msgstr ""
+
+#: handlers/users/cost_report.py:32 handlers/users/income_report.py:31
+#: handlers/users/reports.py:37 keyboards/default/report_kb.py:33
+msgid "Oxirgi 3 oylik hisobot 📊"
+msgstr ""
+
+#: handlers/users/cost_report.py:34 handlers/users/income_report.py:33
+#: handlers/users/reports.py:39 keyboards/default/report_kb.py:34
+msgid "Oxirgi 1 oylik hisobot 📊"
+msgstr ""
+
+#: handlers/users/cost_report.py:36 handlers/users/income_report.py:35
+#: handlers/users/reports.py:41 keyboards/default/report_kb.py:37
+msgid "Oxirgi 1 haftalik hisobot 📊"
+msgstr ""
+
+#: handlers/users/cost_report.py:38 handlers/users/income_report.py:37
+#: handlers/users/reports.py:43 keyboards/default/report_kb.py:38
+msgid "Oxirgi 1 kunlik hisobot 📊"
+msgstr ""
+
+#: handlers/users/cost_report.py:45
+msgid "Sizning xarajatlaringiz hali bo'lmagan!"
 msgstr ""
 
 #: handlers/users/income.py:20
@@ -95,20 +133,20 @@ msgstr ""
 msgid "Miqdori notog'ri kiritilgan. Miqdori raqamlardan iborat bo'lishi kerak!"
 msgstr ""
 
-#: handlers/users/income.py:65
+#: handlers/users/income.py:66
 msgid "Daromadingiz muvaffaqiyatli saqlandi! ✅"
 msgstr ""
 
-#: handlers/users/income.py:69
+#: handlers/users/income.py:70
 msgid "Daromadingiz saqlanmadi. ❌"
 msgstr ""
 
-#: handlers/users/income.py:71
-msgid "Siz asosiy menyudasiz !"
+#: handlers/users/income_report.py:44
+msgid "Sizda daromad bo'yicha hisobot yo'q!"
 msgstr ""
 
-#: handlers/users/income_report.py:11
-msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+#: handlers/users/reports.py:49
+msgid "Hisobot tayyorlash uchun malumot topilmadi! 😔"
 msgstr ""
 
 #: handlers/users/settings.py:15
@@ -155,11 +193,21 @@ msgid "Telefon raqamni ulashish ☎️"
 msgstr ""
 
 #: keyboards/default/report_kb.py:10
+msgid "Umumiy hisobot 📊"
+msgstr ""
+
+#: keyboards/default/report_kb.py:14
 msgid "Daromad bo'yicha hisobot📊"
 msgstr ""
 
-#: keyboards/default/report_kb.py:11
+#: keyboards/default/report_kb.py:15
 msgid "Xarajatlar bo'yicha hisobot📉 "
+msgstr ""
+
+#: keyboards/default/report_kb.py:18 keyboards/default/report_kb.py:41
+#: keyboards/default/user.py:119 keyboards/inline/user.py:20
+#: keyboards/inline/user.py:31 keyboards/inline/user.py:41
+msgid "Bekor qilish ❌"
 msgstr ""
 
 #: keyboards/default/user.py:10 keyboards/default/user.py:30
@@ -215,13 +263,8 @@ msgid "Orqaga ⬅️"
 msgstr ""
 
 #: keyboards/default/user.py:107 keyboards/inline/user.py:30
-#: keyboards/inline/user.py:39
+#: keyboards/inline/user.py:40
 msgid "Saqlash ✅"
-msgstr ""
-
-#: keyboards/default/user.py:119 keyboards/inline/user.py:20
-#: keyboards/inline/user.py:31 keyboards/inline/user.py:40
-msgid "Bekor qilish ❌"
 msgstr ""
 
 #: keyboards/inline/user.py:9
@@ -235,4 +278,22 @@ msgstr ""
 #: keyboards/inline/user.py:11
 msgid "Orqaga qaytish ⬅️"
 msgstr ""
+
+#: keyboards/inline/user.py:56
+msgid "⬅️"
+msgstr ""
+
+#: keyboards/inline/user.py:57
+msgid "❌"
+msgstr ""
+
+#: keyboards/inline/user.py:58
+msgid "➡️"
+msgstr ""
+
+#~ msgid "Xarajatlar bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+#~ msgstr ""
+
+#~ msgid "Daromad bo'yicha hisobot tayyorlanmoqda, iltimos kuting! 😊"
+#~ msgstr ""
 
