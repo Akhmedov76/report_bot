@@ -10,6 +10,16 @@ def change_utc_to_local(utc_time):
     return tashkent_time.strftime("%Y-%m-%d %H:%M:%S")
 
 
+def change_amount_to_number(amount_to_number):
+    report_summ = "{:,}".format(amount_to_number).replace(",", " ")
+    return report_summ
+
+
+def change_amount_to_string(amount_to_number):
+    amount = f"{amount_to_number:,.2f}".replace(",", " ").__str__()
+    return amount
+
+
 def create_report(data):
     report_text = str()
     report_summ = 0
@@ -19,7 +29,7 @@ def create_report(data):
         created_at = change_utc_to_local(str(report['created_at']))
         report_text += f"{index + 1}. {str(new_amount)} so'm, {report['description']}, {created_at}" + "\n \n"
         report_summ += report['amount']
-    report_summ = "{:,}".format(report_summ).replace(",", " ")
+    report_summ = change_amount_to_number(report_summ)
     report_text += f"✅ Umumiy hisob: {report_summ} so'm"
 
     return_data = {
@@ -42,7 +52,7 @@ def create_global_report(data):
         elif report['type'] == ReportType.expense.value:
             report_text += f"{index + 1}. Xarajat, {str(new_amount)} so'm, {report['description']}, {created_at}" + "\n \n"
             report_summ -= report['amount']
-    report_summ = "{:,}".format(report_summ).replace(",", " ")
+    report_summ = change_amount_to_number(report_summ)
     report_text += f"✅ Umumiy hisob: {report_summ} so'm"
     return_data = {
         "report_text": report_text,

@@ -10,6 +10,7 @@ from loader import _
 from main.constants import ReportType, ReportStatus
 from states.user import IncomeAmountState, IncomeDescriptionState
 from utils.db_commands.user import add_income_and_expense_reports
+from utils.main_functions import change_amount_to_string
 
 router = Router()
 
@@ -48,7 +49,7 @@ async def income_kb_handler(message: types.Message, state: FSMContext):
     data = await state.get_data()
     amount = int(data.get('amount'))
     await state.update_data(description=description)
-    new_amount = f"{amount:,.2f}".replace(",", " ").__str__()
+    new_amount = change_amount_to_string(amount)
     text = _(f'<b>💸Miqdor:</b> {new_amount} so\'m\n\n<b>📝Tavsif:</b> {description}')
     await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=await save_income_kb())
 

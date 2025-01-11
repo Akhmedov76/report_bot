@@ -102,3 +102,15 @@ async def get_one_report(data_id: int) -> Union[dict, None]:
         error_text = f"Error retrieving report with ID {data_id}: {e}"
         logger.error(error_text)
         return None
+
+
+async def delete_user(data_id: int) -> Union[int, None]:
+    """Delete user by id"""
+    try:
+        query = users.delete().where(users.c.id == data_id)
+        deleted_rows = await database.execute(query=query)
+        return deleted_rows
+    except Exception as e:
+        error_text = f"Error deleting user with ID {data_id}: {e}"
+        logger.error(error_text)
+        return None
