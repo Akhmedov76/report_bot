@@ -21,7 +21,7 @@ async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer("Hisobot turini tanlang 👇", reply_markup=await report_main_kb())
 
 
-@router.message(F.text.in_(["Umumiy hisobot 📊", "Umumiy hisobot 📊", "Umumiy hisobot 📊"]))
+@router.message(F.text.in_(["Umumiy hisobot 📊", "Общий отчет 📊", "Общий отчет 📊"]))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Hisobot davomiyligini tanlang 😊 "), reply_markup=await report_date_kb())
 

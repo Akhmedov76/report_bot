@@ -17,7 +17,7 @@ router = Router()
 
 
 @router.message(
-    F.text.in_(["Xarajatlar bo'yicha hisobot📉", "Xarajatlar bo'yicha hisobot📉", "Xarajatlar bo'yicha hisobot📉"]))
+    F.text.in_(["Xarajatlar bo'yicha hisobot📉", "Отчет о расходах📉", "Expense report📉"]))
 async def cost_filter_date_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Hisobot davomiyligini tanlang 😊 "), reply_markup=await report_date_kb())
 

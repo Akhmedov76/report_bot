@@ -15,7 +15,7 @@ from utils.main_functions import change_amount_to_string
 router = Router()
 
 
-@router.message(F.text.in_(['Xarajat 📉', 'Xarajat 📉', 'Xarajat 📉']))
+@router.message(F.text.in_(['Xarajat 📉', 'Cost 📉', 'Стоимость 📉']))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(
         text=_('Xarajatingizni kiriting. Misol uchun: 100000. Faqat raqamlardan iborat bo\'lishi kerak!'),
