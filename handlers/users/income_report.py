@@ -16,7 +16,7 @@ from utils.main_functions import create_report
 router = Router()
 
 
-@router.message(F.text.in_(["Daromad bo'yicha hisobot📊", "Daromad bo'yicha hisobot📊", "Daromad bo'yicha hisobot📊"]))
+@router.message(F.text.in_(["Daromad bo'yicha hisobot📊", "Отчет о прибылях и убытках📊", "Income statement📊"]))
 async def branches_handler(message: types.Message, state: FSMContext):
     await message.answer(_("Hisobot davomiyligini tanlang 😊 "), reply_markup=await report_date_kb())
 
@@ -44,6 +44,7 @@ async def choose_income_filter_date(message: types.Message, state: FSMContext):
     if not all_incomes:
         await message.answer(_("Sizda daromad bo'yicha hisobot yo'q!"), reply_markup=await user_main_menu_keyboard())
         return
+    await message.answer(_("Hisobot tayyorlanmoqda... ⏳"), reply_markup=await user_main_menu_keyboard())
     income_report = create_report(data=all_incomes)
     inline_buttons = await number_of_reports_kb(all_incomes)
 

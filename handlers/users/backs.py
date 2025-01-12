@@ -12,13 +12,14 @@ router = Router()
 async def menu_handler(message: types.Message, state: FSMContext):
     text = _("Siz sozlamalar menyusidasiz..")
     await message.answer(text=text, reply_markup=await user_main_menu_keyboard())
+    await state.clear()
 
 
-@router.message(F.text.in_(['Bekor qilish ❌', 'Cancel ❌', 'Отмена ❌']))
+@router.message(F.text.in_(['Bekor qilish ❌', 'Cancel ❌', 'Отменить ❌']))
 async def menu_handler(message: types.Message, state: FSMContext):
     text = _("Bekor qilindi 😉")
-    await state.clear()
     await message.answer(text=text, reply_markup=await user_main_menu_keyboard())
+    await state.clear()
 
 
 @router.callback_query(lambda c: c.data in ['cancel_pagination'])

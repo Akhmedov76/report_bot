@@ -45,6 +45,7 @@ async def choose_cost_filter_date(message: types.Message, state: FSMContext):
     if not all_costs:
         await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"), reply_markup=await user_main_menu_keyboard())
         return
+    await message.answer(_("Hisobot tayyorlanmoqda... ⏳"), reply_markup=await user_main_menu_keyboard())
     cost_report = create_report(data=all_costs)
     inline_buttons = await number_of_reports_kb(all_costs)
 

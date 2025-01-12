@@ -50,6 +50,7 @@ async def choose_income_filter_date(message: types.Message, state: FSMContext):
                              reply_markup=await user_main_menu_keyboard())
         await state.clear()
         return
+    await message.answer(_("Hisobotingiz tayyorlanmoqda... ⏳"), reply_markup=await user_main_menu_keyboard())
     income_report = create_global_report(data=all_incomes)
     inline_buttons = await number_of_reports_kb(all_incomes)
 
