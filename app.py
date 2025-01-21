@@ -59,7 +59,7 @@ async def main():
         print(f"An error occurred: {e}")
         await send_notification_to_devs(bot=bot)
 
-
+#
 if __name__ == '__main__':
     # Run the bot
     print("Bot is starting...")
