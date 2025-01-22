@@ -12,7 +12,7 @@ DB_PASS = env.str("DB_PASS")
 DB_HOST = env.str("DB_HOST")
 DB_PORT = env.str("DB_PORT")
 DB_NAME = env.str("DB_NAME")
-DATABASE_URL = env.str("DATABASE_URL")
+# DATABASE_URL = env.str("DATABASE_URL")
 
 I18N_DOMAIN = 'lang'
 LOCALES_DIR = 'locale'

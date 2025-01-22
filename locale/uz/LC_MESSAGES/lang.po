@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-11 18:10+0500\n"
-"PO-Revision-Date: 2025-01-11 18:10+0500\n"
+"POT-Creation-Date: 2025-01-22 12:29+0500\n"
+"PO-Revision-Date: 2025-01-22 12:29+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
 "Language-Team: uz <LL@li.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 
 #: handlers/users/backs.py:13
 msgid "Siz sozlamalar menyusidasiz.."
-msgstr "Siz sozlamalar menyusidasiz.."
+msgstr ""
 
-#: handlers/users/backs.py:19
+#: handlers/users/backs.py:20
 msgid "Bekor qilindi 😉"
 msgstr ""
 
-#: handlers/users/backs.py:26
+#: handlers/users/backs.py:27
 msgid "Siz asosiy menyuga qaytadiz.. ⬅️"
 msgstr ""
 
@@ -123,6 +123,10 @@ msgstr ""
 msgid "Sizning xarajatlaringiz hali bo'lmagan!"
 msgstr ""
 
+#: handlers/users/cost_report.py:48 handlers/users/income_report.py:47
+msgid "Hisobot tayyorlanmoqda... ⏳"
+msgstr ""
+
 #: handlers/users/delete_report.py:45
 msgid ""
 "<b>Hisobotni o'chirmoqchimisiz?</b>\n"
@@ -153,6 +157,10 @@ msgstr ""
 
 #: handlers/users/reports.py:49
 msgid "Hisobot tayyorlash uchun malumot topilmadi! 😔"
+msgstr ""
+
+#: handlers/users/reports.py:53
+msgid "Hisobotingiz tayyorlanmoqda... ⏳"
 msgstr ""
 
 #: handlers/users/settings.py:15
