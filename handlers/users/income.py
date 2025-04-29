@@ -4,7 +4,7 @@ from aiogram.filters import StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
 
-from keyboards.default.user import cancel_kb, user_main_menu_keyboard
+from keyboards.default.user import cancel_kb, user_main_menu_keyboard, user_main_menu_keyboard_with_lang
 from keyboards.inline.user import save_income_kb
 from loader import _
 from main.constants import ReportType, ReportStatus
@@ -64,16 +64,16 @@ async def process_save_cancel(callback_query: CallbackQuery, state: FSMContext):
             data['status'] = ReportStatus.activated.value
             new_income = await add_income_and_expense_reports(data=data, message=callback_query.message)
             if new_income:
-                await callback_query.answer(text=_('Daromadingiz muvaffaqiyatli saqlandi! ✅'))
+                await callback_query.answer(text='Daromadingiz muvaffaqiyatli saqlandi! ✅')
             else:
-                await callback_query.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'))
+                await callback_query.answer(text='Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.')
         elif action == 'cancel_income':
-            await callback_query.answer(text=_('Daromadingiz saqlanmadi. ❌'))
+            await callback_query.answer(text='Daromadingiz saqlanmadi. ❌')
         await callback_query.message.delete_reply_markup()
-        await callback_query.message.answer(text=_("Siz asosiy menyudasiz !"),
-                                            reply_markup=await user_main_menu_keyboard())
+        await callback_query.message.answer(text="Siz asosiy menyudasiz !  ✅",
+                                            reply_markup=await user_main_menu_keyboard_with_lang('uz'))
         await state.clear()
     except Exception as e:
         print(e)
         await callback_query.message.answer(text=_('Xatolik yuz berdi! Iltimos, bizda qayta urinib ko\'ring.'),
-                                            reply_markup=await user_main_menu_keyboard())
+                                            reply_markup=await user_main_menu_keyboard_with_lang('uz'))

@@ -8,7 +8,7 @@ from keyboards.default.report_kb import report_date_kb
 from keyboards.inline.user import number_of_reports_kb
 from loader import _
 from main.constants import ReportType
-from keyboards.default.user import user_main_menu_keyboard
+from keyboards.default.user import user_main_menu_keyboard_with_lang
 from states.user import ReportStateForCost
 from utils.db_commands.user import get_user_income_and_expense_reports
 from utils.main_functions import create_report
@@ -43,9 +43,10 @@ async def choose_cost_filter_date(message: types.Message, state: FSMContext):
                                                                        report_type=ReportType.expense.value,
                                                                        filter_date=filter_date)
     if not all_costs:
-        await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"), reply_markup=await user_main_menu_keyboard())
+        await message.answer(_("Sizning xarajatlaringiz hali bo'lmagan!"),
+                             reply_markup=await user_main_menu_keyboard_with_lang('uz'))
         return
-    await message.answer(_("Hisobot tayyorlanmoqda... ⏳"), reply_markup=await user_main_menu_keyboard())
+    await message.answer(_("Hisobot tayyorlanmoqda... ⏳"), reply_markup=await user_main_menu_keyboard_with_lang('uz'))
     cost_report = create_report(data=all_costs)
     inline_buttons = await number_of_reports_kb(all_costs)
 

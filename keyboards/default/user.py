@@ -13,10 +13,10 @@ async def user_main_menu_keyboard_with_lang(language: str):
             [
                 KeyboardButton(text=_("Hisobotlar 📄", locale=language)),
             ],
-            [
-                KeyboardButton(text=_("Admin bilan aloqa ☎️", locale=language)),
-                KeyboardButton(text=_("Sozlanmalar ⚙️", locale=language)),
-            ]
+            # [
+            #     KeyboardButton(text=_("Admin bilan aloqa ☎️", locale=language)),
+            #     KeyboardButton(text=_("Sozlanmalar ⚙️", locale=language)),
+            # ]
         ], resize_keyboard=True
     )
 
@@ -34,10 +34,10 @@ async def user_main_menu_keyboard():
 
                 KeyboardButton(text=_("Hisobotlar 📄")),
             ],
-            [
-                KeyboardButton(text=_("Admin bilan aloqa ☎️")),
-                KeyboardButton(text=_("Sozlanmalar ⚙️")),
-            ]
+            # [
+            #     KeyboardButton(text=_("Admin bilan aloqa ☎️")),
+            #     KeyboardButton(text=_("Sozlanmalar ⚙️")),
+            # ]
         ], resize_keyboard=True
     )
 

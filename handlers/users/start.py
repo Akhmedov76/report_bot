@@ -21,22 +21,22 @@ async def start_handler(message: types.Message, state: FSMContext):
 
     user = await get_user(chat_id=message.chat.id)
     if user:
-        text = _("Xush kelibsiz xo'jayin 😊")
-        await message.answer(text=text, reply_markup=await user_main_menu_keyboard())
+        text = "Xush kelibsiz xo'jayin 😊"
+        await message.answer(text=text, reply_markup=await user_main_menu_keyboard_with_lang('uz'))
     else:
-        text = _("Tilni tanlang\nSelect Language\nRu tilni tanlang")
-        await message.answer(text=text, reply_markup=languages)
-        await state.set_state(RegisterState.language)
+        text = _("Ism familiyangizni kiriting 👇", locale='uz')
+        await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
+        await state.set_state(RegisterState.full_name)
 
 
-@router.message(StateFilter(RegisterState.language))
-async def language_handler(message: types.Message, state: FSMContext):
-    language = await get_lang_by_text(language=message.text)
-    await state.update_data(language=language)
-
-    text = _("Ism familiyangizni kiriting 👇", locale=language)
-    await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
-    await state.set_state(RegisterState.full_name)
+# @router.message(StateFilter(RegisterState.language))
+# async def language_handler(message: types.Message, state: FSMContext):
+#     language = await get_lang_by_text(language=message.text)
+#     await state.update_data(language=language)
+#
+#     text = _("Ism familiyangizni kiriting 👇", locale=language)
+#     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
+#     await state.set_state(RegisterState.full_name)
 
 
 @router.message(StateFilter(RegisterState.full_name))
@@ -44,9 +44,9 @@ async def get_full_name_handler(message: types.Message, state: FSMContext):
     await state.update_data(full_name=message.text)
 
     data = await state.get_data()
-    language = data.get('language')
+    language = 'uz'
 
-    text = _("Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇", locale=language)
+    text = "Iltimos, quyidagi tugma orqali telefon raqamingizni kiriting 👇"
     await message.answer(text=text, reply_markup=await phone_number_share_keyboard(language=language))
     await state.set_state(RegisterState.phone_number)
 
@@ -59,8 +59,8 @@ async def get_phone_number_handler(message: types.Message, state: FSMContext):
     language = data.get('language')
     new_user = await add_user(message=message, data=data)
     if new_user:
-        text = _("Siz roʻyxatdan oʻtdingiz ✅", locale=language)
-        await message.answer(text=text, reply_markup=await user_main_menu_keyboard_with_lang(language=language))
+        text = "Siz roʻyxatdan oʻtdingiz ✅"
+        await message.answer(text=text, reply_markup=await user_main_menu_keyboard_with_lang('uz'))
     else:
         text = _("Kechirasiz, keyinroq qayta urinib ko'ring 😔", locale=language)
         await message.answer(text=text)

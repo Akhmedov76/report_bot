@@ -1,15 +1,13 @@
-import types
-
 from aiogram import Router
 
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
-from keyboards.default.user import user_main_menu_keyboard
+from keyboards.default.user import user_main_menu_keyboard, user_main_menu_keyboard_with_lang
 from keyboards.inline.user import delete_report_kb
 from loader import _
 
 from utils.db_commands.user import get_one_report, update_status_report
-from utils.main_functions import change_amount_to_number, change_amount_to_string
+from utils.main_functions import change_amount_to_string
 
 router = Router()
 
@@ -32,7 +30,8 @@ async def delete_report_handler(callback_query: CallbackQuery, state: FSMContext
     report = await get_one_report(report_id)
 
     if report is None:
-        await callback_query.message.answer("Report not found.", reply_markup=await user_main_menu_keyboard())
+        await callback_query.message.answer("Report not found.",
+                                            reply_markup=await user_main_menu_keyboard_with_lang('uz'))
         return
 
     # Format the amount properly
@@ -67,7 +66,8 @@ async def confirm_delete_report(callback_query: CallbackQuery, state: FSMContext
     report_id = user_data.get('report_id')
     # If no report ID exists, return an error (this should not happen)
     if report_id is None:
-        await callback_query.message.answer("No report ID found.", reply_markup=await user_main_menu_keyboard())
+        await callback_query.message.answer("No report ID found.",
+                                            reply_markup=await user_main_menu_keyboard_with_lang('uz'))
         await state.clear()
         return
 
@@ -77,12 +77,12 @@ async def confirm_delete_report(callback_query: CallbackQuery, state: FSMContext
         # Send a confirmation message to the user
         await callback_query.message.answer(
             f"Hisobot o'chirildi. ✅",
-            reply_markup=await user_main_menu_keyboard()
+            reply_markup=await user_main_menu_keyboard_with_lang('uz')
         )
     else:
         await callback_query.message.answer(
             "Xatolik yuz berdi. Hisobotni o'chirib bo'lmadi. ❌",
-            reply_markup=await user_main_menu_keyboard()
+            reply_markup=await user_main_menu_keyboard_with_lang('uz')
         )
 
     # Clear the state after the operation
@@ -100,6 +100,6 @@ async def back_to_main_menu(callback_query: CallbackQuery, state: FSMContext):
     """
     await callback_query.answer()
     await callback_query.message.answer(
-        "Orqaga qaytildi. 🔙", reply_markup=await user_main_menu_keyboard()
+        "Orqaga qaytildi. 🔙", reply_markup=await user_main_menu_keyboard('uz')
     )
     await state.clear()

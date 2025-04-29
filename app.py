@@ -2,6 +2,7 @@ import asyncio
 
 from handlers.users import start, contact, cost_report, settings, backs, commands, branches, income, cost, reports, \
     income_report, delete_report
+from handlers.admins import admin
 from loader import dp, bot
 from loader import i18n
 from main.database import database
@@ -39,6 +40,9 @@ async def main():
 
         # delete report
         dp.include_router(router=delete_report.router)
+
+        # for admin,
+        dp.include_router(router=admin.router)
 
         # Set up middlewares
         dp.message.middleware(middleware=LanguageMiddleware(i18n=i18n))
